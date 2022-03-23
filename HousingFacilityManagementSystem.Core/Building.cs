@@ -8,9 +8,10 @@ namespace HousingFacilityManagementSystem.Core
 {
     public class Building
     {
-        public Building(int apartmentCapacity)
+        public Building(int apartmentCapacity, Address address)
         {
             ApartmentCapacity = apartmentCapacity;
+            Address = address;
         }
 
         public Address Address { get; set; }
