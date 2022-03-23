@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "HousingFacilityManagementSystem.Core/1.0.0": {
+        "runtime": {
+          "HousingFacilityManagementSystem.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HousingFacilityManagementSystem.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
