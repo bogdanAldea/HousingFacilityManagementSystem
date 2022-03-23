@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Core.Interfaces
 {
-    internal interface IActivatablePowerSupply: IPowerSupply, IActivatable
+    public interface IActivatablePowerSupply: IPowerSupply, IActivatable
     {
     }
 }
