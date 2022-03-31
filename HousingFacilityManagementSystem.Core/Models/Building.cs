@@ -16,6 +16,7 @@ namespace HousingFacilityManagementSystem.Core
 
         public Address Address { get; set; }
         public int ApartmentCapacity { get; set; }
+        public List<Apartment> Apartments { get; set; }
         public PaymentBill UtilityBill { get; set; }
     }
 }
