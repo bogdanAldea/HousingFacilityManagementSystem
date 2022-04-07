@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Project.Core.Interfaces
 {
-    public interface IActivatable
+    public interface IPriceable
     {
-        public bool IsActive { get; set; }
+        public decimal Price { get; set; }
     }
 }

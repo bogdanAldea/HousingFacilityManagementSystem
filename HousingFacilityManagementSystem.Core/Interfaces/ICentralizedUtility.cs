@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Project.Core.Interfaces
 {
-    public interface IActivatablePowerSupply : IMeasurable, IActivatable
+    public interface ICentralizedUtility : IPriceable
     {
-        public int Id { get; set; }
         public Utility Utility { get; set; }
+        public decimal Price { get; set; }
     }
 }

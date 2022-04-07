@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Core.Interfaces
+namespace Project.Core.Interfaces
 {
-    public interface IPowerSupply : IUtility, IMeasurable
+    public interface IBillable
     {
+        public bool AmountToPay { get; set; }
     }
 }

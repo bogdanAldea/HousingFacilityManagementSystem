@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace Project.Core.Models
 {
-    public class ActivatablePowerSupply : IActivatablePowerSupply
+    public class MasterPowerSupply : IMasterPowerSupply
     {
-        public ActivatablePowerSupply(Utility utility)
+
+        public MasterPowerSupply(Utility utility)
         {
             Utility = utility;
         }
 
         public int Id { get; set; }
-        public Utility Utility { get; set; }
         public int IndexMeter { get; set; }
         public int CurrentMonthIndex { get; set; }
-        public bool IsActive { get; set; }
+        public decimal Price { get; set; }
+        public Utility Utility { get; set; }
     }
 }

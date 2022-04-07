@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project.Core.Interfaces
 {
-    public interface IActivatablePowerSupply : IMeasurable, IActivatable
+    public interface IMasterPowerSupply : IMeasurable, IPriceable
     {
         public int Id { get; set; }
         public Utility Utility { get; set; }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Core.Interfaces
+namespace Project.Core.Interfaces
 {
     public interface IMeasurable
     {
         public int IndexMeter { get; set; }
-        public int CurrentConsumptioIndex { get; set; }
+        public int CurrentMonthIndex { get; set; }
     }
 }

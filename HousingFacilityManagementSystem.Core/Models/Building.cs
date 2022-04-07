@@ -1,22 +1,25 @@
-﻿using System;
+﻿using Project.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Core
+namespace Project.Core.Models
 {
     public class Building
     {
-        public Building(int apartmentCapacity, Address address)
+
+        public Building(int capacity, Address address)
         {
-            ApartmentCapacity = apartmentCapacity;
+            Capacity = capacity;
             Address = address;
         }
 
         public Address Address { get; set; }
-        public int ApartmentCapacity { get; set; }
-        public List<Apartment> Apartments { get; set; }
-        public PaymentBill UtilityBill { get; set; }
+        public int Capacity { get; set; }
+        public List<Apartment> Apartments { get; private set; } = new List<Apartment>();
+        public List<IMasterPowerSupply> MasterPowerSupplies { get; set; } = new List<IMasterPowerSupply>();
+        public List<ICentralizedUtility> CentralizedUtilities { get; set; } = new List<ICentralizedUtility>();
     }
 }
