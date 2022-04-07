@@ -21,5 +21,11 @@ namespace HousingFacilityManagementSystem.Core.Models
         public int CurrentMonthIndex { get; set; }
         public decimal Price { get; set; }
         public Utility Utility { get; set; }
+
+        public override string ToString()
+        {
+            return $"Utility: {Utility.Name}({IndexMeter})";
+        }
+
     }
 }

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HousingFacilityManagementSystem.Core\HousingFacilityManagementSystem.Core.csproj" />
+    <ProjectReference Include="..\HousingFacilityManagementSystem.Infrastructure\HousingFacilityManagementSystem.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
