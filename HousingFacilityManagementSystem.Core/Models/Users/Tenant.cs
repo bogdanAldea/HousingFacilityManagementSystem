@@ -9,6 +9,14 @@ namespace HousingFacilityManagementSystem.Core.Models
 {
     public class Tenant : IUser
     {
+
+        public Tenant(string firstName, string lastName, string emailAddress)
+        {
+            FirstName = firstName;
+            LastName = lastName;   
+            EmailAddress = emailAddress;
+        }
+
         public Apartment Apartment { get; set; }
         public int Id { get; set; }
         public string FirstName { get; set; }

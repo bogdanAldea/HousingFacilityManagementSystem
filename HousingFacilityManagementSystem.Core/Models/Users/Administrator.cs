@@ -10,10 +10,11 @@ namespace HousingFacilityManagementSystem.Core.Models
     public class Administrator : IUser
     {
 
-        public Administrator(string firstName, string lastName)
+        public Administrator(string firstName, string lastName, string emailAddress)
         {
             FirstName = firstName;
             LastName = lastName;
+            EmailAddress = emailAddress;
         }
 
         public Building Building { get; set; }

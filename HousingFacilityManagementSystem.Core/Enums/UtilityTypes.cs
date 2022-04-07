@@ -8,7 +8,7 @@ namespace HousingFacilityManagementSystem.Core.Enums
 {
     public enum UtilityType
     {
-        PowerSupply,
-        Centralized
+        Consumable,
+        Universal,
     }
 }
