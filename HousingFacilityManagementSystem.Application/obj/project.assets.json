@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Amdaris-Internship-Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\HousingFacilityManagementSystem.Application.csproj",
+      "projectUniqueName": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\HousingFacilityManagementSystem.Application.csproj",
       "projectName": "HousingFacilityManagementSystem.Application",
-      "projectPath": "D:\\Projects\\Amdaris-Internship-Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\HousingFacilityManagementSystem.Application.csproj",
+      "projectPath": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\HousingFacilityManagementSystem.Application.csproj",
       "packagesPath": "C:\\Users\\bogda\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Amdaris-Internship-Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\obj\\",
+      "outputPath": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bogda\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Amdaris-Internship-Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj": {}
+    "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Amdaris-Internship-Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj": {
+    "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Amdaris-Internship-Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj",
+        "projectUniqueName": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj",
         "projectName": "ConsoleApp",
-        "projectPath": "D:\\Projects\\Amdaris-Internship-Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj",
+        "projectPath": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj",
         "packagesPath": "C:\\Users\\bogda\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Amdaris-Internship-Project\\HousingFacilityManagementSystem\\ConsoleApp\\obj\\",
+        "outputPath": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bogda\\AppData\\Roaming\\NuGet\\NuGet.Config",
