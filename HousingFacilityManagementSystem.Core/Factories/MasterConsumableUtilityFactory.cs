@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Core.Factories
 {
-    internal class MasterConsumableUtilityFactory : IConsumableUtilityFactory<MasterConsumableUtility>
+    public class MasterConsumableUtilityFactory : IConsumableUtilityFactory<MasterConsumableUtility>
     {
-        public MasterConsumableUtility CreateConsumableUtility(string name, int totalIndexMeter, Utility utility)
+        public MasterConsumableUtility CreateConsumableUtility(int indexMeter, Utility utility)
         {
-            return new MasterConsumableUtility()
+            return new MasterConsumableUtility(indexMeter: indexMeter, utility: utility);
         }
     }
 }
