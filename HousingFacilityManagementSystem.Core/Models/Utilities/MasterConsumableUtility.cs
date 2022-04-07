@@ -1,18 +1,19 @@
-﻿using Project.Core.Interfaces;
+﻿using HousingFacilityManagementSystem.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Core.Models
+namespace HousingFacilityManagementSystem.Core.Models
 {
-    public class MasterPowerSupply : IMasterPowerSupply
+    public class MasterConsumableUtility : IMasterConsumableUtility
     {
 
-        public MasterPowerSupply(Utility utility)
+        public MasterConsumableUtility(Utility utility, int indexMeter)
         {
             Utility = utility;
+            IndexMeter = indexMeter;
         }
 
         public int Id { get; set; }

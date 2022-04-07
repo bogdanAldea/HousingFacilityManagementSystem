@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Core.Interfaces
+namespace HousingFacilityManagementSystem.Core.Interfaces
 {
     public interface IBillable
     {

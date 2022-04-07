@@ -1,11 +1,11 @@
-﻿using Project.Core.Interfaces;
+﻿using HousingFacilityManagementSystem.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Core.Models
+namespace HousingFacilityManagementSystem.Core.Models
 {
     public class Building
     {
@@ -13,8 +13,8 @@ namespace Project.Core.Models
         public Address Address { get; set; }
         public int Capacity { get; set; }
         public List<Apartment> Apartments { get; private set; } = new List<Apartment>();
-        public List<IMasterPowerSupply> MasterPowerSupplies { get; set; } = new List<IMasterPowerSupply>();
-        public List<ICentralizedUtility> CentralizedUtilities { get; set; } = new List<ICentralizedUtility>();
+        public List<IMasterConsumableUtility> MasterPowerSupplies { get; set; } = new List<IMasterConsumableUtility>();
+        public List<IUniversalUtility> CentralizedUtilities { get; set; } = new List<IUniversalUtility>();
 
         public Building(int capacity, Address address)
         {

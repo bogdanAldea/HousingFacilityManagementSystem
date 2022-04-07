@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Core.Interfaces
+namespace HousingFacilityManagementSystem.Core.Interfaces
 {
-    public interface IMeasurable
+    public interface IConsumable
     {
         public int IndexMeter { get; set; }
         public int CurrentMonthIndex { get; set; }

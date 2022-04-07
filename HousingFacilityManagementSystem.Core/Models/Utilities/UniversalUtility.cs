@@ -1,16 +1,16 @@
-﻿using Project.Core.Interfaces;
+﻿using HousingFacilityManagementSystem.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Core.Models
+namespace HousingFacilityManagementSystem.Core.Models
 {
-    public class CentralizedUtility : ICentralizedUtility
+    public class UniversalUtility : IUniversalUtility
     {
 
-        public CentralizedUtility(Utility utility)
+        public UniversalUtility(Utility utility)
         {
             Utility = utility;
         }

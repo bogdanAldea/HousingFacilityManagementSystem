@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Core.Interfaces
+namespace HousingFacilityManagementSystem.Core.Interfaces
 {
-    public interface IActivatable
+    public interface IBranchable
     {
-        public bool IsActive { get; set; }
+        public bool IsBranched { get; set; }
     }
 }

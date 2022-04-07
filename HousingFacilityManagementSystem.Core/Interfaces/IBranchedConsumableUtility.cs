@@ -1,13 +1,13 @@
-﻿using Project.Core.Models;
+﻿using HousingFacilityManagementSystem.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Core.Interfaces
+namespace HousingFacilityManagementSystem.Core.Interfaces
 {
-    public interface IActivatablePowerSupply : IMeasurable, IActivatable
+    public interface IBranchedConsumableUtility : IConsumable, IBranchable, IBillable
     {
         public int Id { get; set; }
         public Utility Utility { get; set; }
