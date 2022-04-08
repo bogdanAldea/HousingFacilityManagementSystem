@@ -1,4 +1,4 @@
-﻿using HousingFacilityManagementSystem.Core.Interfaces;
+﻿using HousingFacilityManagementSystem.Core.Models.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace HousingFacilityManagementSystem.Core.Models
         public int NumberInBuilding { get; set; }
         public int Residents { get; set; }
         public double SurfaceArea { get; set; }
-        public List<IBranchedConsumableUtility> PowerSupplies { get; set; } = new List<IBranchedConsumableUtility>();
+        public List<BranchedConsumableUtility> PowerSupplies { get; set; } = new List<BranchedConsumableUtility>();
         public List<Invoice> Invoices { get; set; } = new List<Invoice>();
         public double PaymentDebt { get; set; }
     }
