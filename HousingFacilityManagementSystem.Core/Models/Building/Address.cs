@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HousingFacilityManagementSystem.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Core.Models
 {
-    public class Address
+    public class Address : IEntity
     {
 
         public Address(string streetName, string streetNumber, string city, string county, string country)

@@ -1,4 +1,5 @@
 ﻿using HousingFacilityManagementSystem.Core.Enums;
+using HousingFacilityManagementSystem.Core.Interfaces;
 using HousingFacilityManagementSystem.Core.Interfaces.Utilities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Core.Models.Utilities
 {
-    public class BranchedConsumableUtility : IBranchedConsumableUtility
+    public class BranchedConsumableUtility : IBranchedConsumableUtility, IEntity
     {
 
         public BranchedConsumableUtility(string name, UtilityType type, int indexMeter)

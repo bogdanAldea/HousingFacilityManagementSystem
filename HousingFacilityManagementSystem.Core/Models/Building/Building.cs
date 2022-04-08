@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Core.Models
 {
-    public class Building
+    public class Building : IEntity
     {
         public int Id { get; set; }
         public Administrator Administrator { get; set; }

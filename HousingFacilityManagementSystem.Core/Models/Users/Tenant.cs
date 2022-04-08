@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Core.Models
 {
-    public class Tenant : IUser
+    public class Tenant : IUser, IEntity
     {
 
         public Tenant(string firstName, string lastName, string emailAddress, string username)

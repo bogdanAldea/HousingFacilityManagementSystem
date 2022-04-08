@@ -1,4 +1,5 @@
 ﻿using HousingFacilityManagementSystem.Core.Enums;
+using HousingFacilityManagementSystem.Core.Interfaces;
 using HousingFacilityManagementSystem.Core.Interfaces.Utilities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Core.Models.Utilities
 {
-    public class UniversalUtility : IUniversalUtility
+    public class UniversalUtility : IUniversalUtility, IEntity
     {
 
         public UniversalUtility(string name, UtilityType type, decimal price)

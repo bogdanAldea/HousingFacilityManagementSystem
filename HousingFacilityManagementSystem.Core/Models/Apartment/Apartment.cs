@@ -1,4 +1,5 @@
-﻿using HousingFacilityManagementSystem.Core.Models.Utilities;
+﻿using HousingFacilityManagementSystem.Core.Interfaces;
+using HousingFacilityManagementSystem.Core.Models.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Core.Models
 {
-    public class Apartment
+    public class Apartment : IEntity
     {
 
         public Apartment(int numberInBuilding)
