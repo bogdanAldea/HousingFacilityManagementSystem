@@ -1,4 +1,5 @@
 ﻿using HousingFacilityManagementSystem.Core.Models;
+using HousingFacilityManagementSystem.Core.Models.Utilities;
 using HousingFacilityManagementSystem.Core.Repositories;
 using System;
 using System.Collections.Generic;

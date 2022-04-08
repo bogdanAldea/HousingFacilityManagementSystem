@@ -1,21 +1,26 @@
-﻿using HousingFacilityManagementSystem.Core.Interfaces;
+﻿using HousingFacilityManagementSystem.Core.Enums;
+using HousingFacilityManagementSystem.Core.Interfaces.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Core.Models
+namespace HousingFacilityManagementSystem.Core.Models.Utilities
 {
     public class UniversalUtility : IUniversalUtility
     {
 
-        public UniversalUtility(Utility utility)
+        public UniversalUtility(string name, UtilityType type, decimal price)
         {
-            Utility = utility;
+            Name = name;
+            Type = type;
+            Price = price;
         }
 
-        public Utility Utility { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public decimal Price { get; set; }
+        public UtilityType Type { get; set; }
     }
 }
