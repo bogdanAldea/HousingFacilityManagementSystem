@@ -10,14 +10,13 @@ namespace HousingFacilityManagementSystem.Core.Models
     public class Apartment
     {
 
-        public Apartment(int numberInBuilding, Tenant tenant)
+        public Apartment(int numberInBuilding)
         {
             NumberInBuilding = numberInBuilding;
-            Tenant = tenant;
         }
 
         public int Id { get; set; }
-        public Tenant Tenant { get; set; }
+        public Tenant? Tenant { get; set; }
         public int NumberInBuilding { get; set; }
         public int Residents { get; set; }
         public double SurfaceArea { get; set; }

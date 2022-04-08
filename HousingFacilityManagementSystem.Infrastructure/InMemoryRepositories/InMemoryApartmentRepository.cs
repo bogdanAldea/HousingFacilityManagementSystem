@@ -20,22 +20,23 @@ namespace HousingFacilityManagementSystem.Infrastructure
 
         public void Add(Apartment entity)
         {
-            throw new NotImplementedException();
+            if (entity == null) { throw new ArgumentNullException(); }
+            entity.Id = _apartments.Count();
         }
 
         public void Delete(Apartment entity)
         {
-            throw new NotImplementedException();
+            _apartments.Remove(entity);
         }
 
         public IEnumerable<Apartment> GetAll()
         {
-            throw new NotImplementedException();
+            return _apartments;
         }
 
         public Apartment GetById(int id)
         {
-            throw new NotImplementedException();
+            return _apartments.FirstOrDefault(apartment => apartment.Id == id);
         }
 
         public void Update(Apartment entity)
