@@ -47,7 +47,9 @@ namespace HousingFacilityManagementSystem.Core.Repositories
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            IEntity oldEntity = _inMemoryContext.Where(oldEntity => oldEntity.Id == entity.Id).First();
+            oldEntity = entity;
+
         }
     }
 }
