@@ -48,7 +48,14 @@ namespace HousingFacilityManagementSystem.Core.Repositories
         public void Update(T entity)
         {
             IEntity oldEntity = _inMemoryContext.Where(oldEntity => oldEntity.Id == entity.Id).First();
-            oldEntity = entity;
+            if (oldEntity != null)
+            {
+                oldEntity = entity;
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
 
         }
     }
