@@ -10,8 +10,4 @@
     <ProjectReference Include="..\HousingFacilityManagementSystem.Core\HousingFacilityManagementSystem.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
