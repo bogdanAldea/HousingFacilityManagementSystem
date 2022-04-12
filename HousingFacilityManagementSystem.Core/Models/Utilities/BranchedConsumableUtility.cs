@@ -19,12 +19,17 @@ namespace HousingFacilityManagementSystem.Core.Models.Utilities
             IndexMeter = indexMeter;
         }
 
+        public BranchedConsumableUtility(string name)
+        {
+            Name = name;
+        }
+
         public decimal AmountToPay { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
-        public UtilityType Type { get; set; }
+        public UtilityType Type { get; set; } = UtilityType.Consumable;
         public int IndexMeter { get; set; }
         public int CurrentMonthIndex { get; set; }
-        public bool IsBranched { get; set; }
+        public bool IsBranched { get; set; } = false;
     }
 }

@@ -12,16 +12,15 @@ namespace HousingFacilityManagementSystem.Core.Models.Utilities
     public class UniversalUtility : IUniversalUtility, IEntity
     {
 
-        public UniversalUtility(string name, UtilityType type, decimal price)
+        public UniversalUtility(string name, decimal price)
         {
             Name = name;
-            Type = type;
             Price = price;
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public UtilityType Type { get; set; }
+        public UtilityType Type { get; set; } = UtilityType.Universal;
     }
 }

@@ -21,7 +21,7 @@ namespace HousingFacilityManagementSystem.Core.Models
         public int NumberInBuilding { get; set; }
         public int Residents { get; set; }
         public double SurfaceArea { get; set; }
-        public List<BranchedConsumableUtility> PowerSupplies { get; set; } = new List<BranchedConsumableUtility>();
+        public List<BranchedConsumableUtility> BranchedUtilities { get; set; } = new List<BranchedConsumableUtility>();
         public List<Invoice> Invoices { get; set; } = new List<Invoice>();
         public double PaymentDebt { get; set; }
     }

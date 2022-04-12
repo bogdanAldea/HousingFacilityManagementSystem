@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "HousingFacilityManagementSystem.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "HousingFacilityManagementSystem.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HousingFacilityManagementSystem.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HousingFacilityManagementSystem.Application.dll": {}
+        }
+      },
       "HousingFacilityManagementSystem.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -28,6 +41,11 @@
     }
   },
   "libraries": {
+    "HousingFacilityManagementSystem.Application/1.0.0": {
+      "type": "project",
+      "path": "../HousingFacilityManagementSystem.Application/HousingFacilityManagementSystem.Application.csproj",
+      "msbuildProject": "../HousingFacilityManagementSystem.Application/HousingFacilityManagementSystem.Application.csproj"
+    },
     "HousingFacilityManagementSystem.Core/1.0.0": {
       "type": "project",
       "path": "../HousingFacilityManagementSystem.Core/HousingFacilityManagementSystem.Core.csproj",
@@ -41,6 +59,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "HousingFacilityManagementSystem.Application >= 1.0.0",
       "HousingFacilityManagementSystem.Core >= 1.0.0",
       "HousingFacilityManagementSystem.Infrastructure >= 1.0.0"
     ]
@@ -72,6 +91,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\HousingFacilityManagementSystem.Application.csproj": {
+              "projectPath": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\HousingFacilityManagementSystem.Application.csproj"
+            },
             "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Core\\HousingFacilityManagementSystem.Core.csproj": {
               "projectPath": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Core\\HousingFacilityManagementSystem.Core.csproj"
             },

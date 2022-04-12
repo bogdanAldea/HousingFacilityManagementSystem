@@ -10,11 +10,11 @@ namespace HousingFacilityManagementSystem.Core.Repositories
     public class InMemoryGenericRepository<T> : IGenericRepository<T> where T : class, IEntity
     {
 
-        private List<T> _inMemoryContext;
+        private readonly ICollection<T> _inMemoryContext;
 
-        public InMemoryGenericRepository(List<T> inMemoryContext)
+        public InMemoryGenericRepository(ICollection<T> inMemoryContext)
         {
-            _inMemoryContext = inMemoryContext;
+            this._inMemoryContext = inMemoryContext;
         }
 
         public void Add(T entity)
@@ -23,6 +23,7 @@ namespace HousingFacilityManagementSystem.Core.Repositories
             { 
                 throw new ArgumentNullException(); 
             }
+            entity.Id = _inMemoryContext.Count() + 1;
             _inMemoryContext.Add(entity);
         }
 

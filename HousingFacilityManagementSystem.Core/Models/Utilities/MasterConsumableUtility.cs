@@ -20,9 +20,14 @@ namespace HousingFacilityManagementSystem.Core.Models.Utilities
             IndexMeter = indexMeter;
         }
 
+        public MasterConsumableUtility(string name)
+        {
+            Name = name;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
-        public UtilityType Type { get; set; }
+        public UtilityType Type { get; set; } = UtilityType.Consumable;
         public int IndexMeter { get; set; }
         public int CurrentMonthIndex { get; set; }
         public decimal Price { get; set; }
