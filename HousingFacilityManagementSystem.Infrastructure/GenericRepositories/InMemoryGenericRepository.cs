@@ -36,7 +36,7 @@ namespace HousingFacilityManagementSystem.Core.Repositories
             _inMemoryContext.Remove(entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public ICollection<T> GetAll()
         {
             return _inMemoryContext;
         }

@@ -29,7 +29,7 @@ namespace HousingFacilityManagementSystem.Infrastructure
             throw new NotImplementedException();
         }
 
-        public IEnumerable<UniversalUtility> GetAll()
+        public ICollection<UniversalUtility> GetAll()
         {
             throw new NotImplementedException();
         }

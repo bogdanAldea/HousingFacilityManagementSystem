@@ -11,7 +11,7 @@ namespace HousingFacilityManagementSystem.Core.Repositories
         public void Add(T entity);
         public void Update(T entity);
         public void Delete(T entity);
-        IEnumerable<T> GetAll();
+        ICollection<T> GetAll();
         T GetById(int id);
     }
 }

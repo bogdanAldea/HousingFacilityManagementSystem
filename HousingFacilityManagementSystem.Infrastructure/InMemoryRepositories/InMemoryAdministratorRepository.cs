@@ -29,7 +29,7 @@ namespace HousingFacilityManagementSystem.Infrastructure
             _administrators.Remove(entity);
         }
 
-        public IEnumerable<Administrator> GetAll()
+        public ICollection<Administrator> GetAll()
         {
             return _administrators;
         }

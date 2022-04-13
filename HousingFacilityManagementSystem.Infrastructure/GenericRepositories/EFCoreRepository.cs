@@ -40,7 +40,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.GenericRepositories
                 .SaveChanges();
         }
 
-        public IEnumerable<T> GetAll()
+        public ICollection<T> GetAll()
         {
             return _housingFacilityContext
                 .Set<T>()

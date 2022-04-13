@@ -34,7 +34,7 @@ public class InMemoryBranchedConsumableUtilityRepository : IRepository<BranchedC
         _branchedUtilities.Remove(entity);
     }
 
-    public IEnumerable<BranchedConsumableUtility> GetAll()
+    public ICollection<BranchedConsumableUtility> GetAll()
     {
         return _branchedUtilities;
     }

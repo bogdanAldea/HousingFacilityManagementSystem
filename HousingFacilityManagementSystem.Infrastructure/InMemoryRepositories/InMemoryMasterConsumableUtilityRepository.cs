@@ -33,7 +33,7 @@ namespace HousingFacilityManagementSystem.Infrastructure
             _masterConsumableUtilities.Remove(entity);
         }
 
-        public IEnumerable<MasterConsumableUtility> GetAll()
+        public ICollection<MasterConsumableUtility> GetAll()
         {
             return _masterConsumableUtilities;
         }
