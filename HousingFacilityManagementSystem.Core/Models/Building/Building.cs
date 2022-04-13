@@ -11,7 +11,7 @@ namespace HousingFacilityManagementSystem.Core.Models
     public class Building : IEntity
     {
         public int Id { get; set; }
-        public Administrator Administrator { get; set; }
+        public Administrator? Administrator { get; set; } = null!;
         public int Capacity { get; set; }
         public List<Apartment> Apartments { get; private set; } = new List<Apartment>();
         public List<MasterConsumableUtility> MasterConsumableUtilities { get; set; } = new List<MasterConsumableUtility>();
@@ -21,6 +21,11 @@ namespace HousingFacilityManagementSystem.Core.Models
         {
             Capacity = capacity;
             Administrator = administrator;
+
+        }
+
+        public Building()
+        {
 
         }
 
