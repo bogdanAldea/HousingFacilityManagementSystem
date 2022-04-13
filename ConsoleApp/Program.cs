@@ -9,7 +9,3 @@ using HousingFacilityManagementSystem.Core.Services;
 using HousingFacilityManagementSystem.Infrastructure;
 using HousingFacilityManagementSystem.Infrastructure.Context;
 using HousingFacilityManagementSystem.Infrastructure.GenericRepositories;
-
-
-IGenericRepository<Administrator> adminRepo = new EFCoreRepository<Administrator>(new HousingFacilityContext());
-IGenericRepository<Building> buildingRepo = new EFCoreRepository<Building>(new HousingFacilityContext());
