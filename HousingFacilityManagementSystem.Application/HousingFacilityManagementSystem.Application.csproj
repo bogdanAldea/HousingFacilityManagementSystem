@@ -7,7 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\HousingFacilityManagementSystem.Core\HousingFacilityManagementSystem.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Apartment\Commands\" />
+    <Folder Include="Apartment\Queries\" />
+    <Folder Include="Building\Commands\" />
+    <Folder Include="Building\Queries\" />
+    <Folder Include="User\Commands\" />
+    <Folder Include="User\Queries\" />
+    <Folder Include="Utility\Commands\" />
+    <Folder Include="Utility\Queries\" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,6 @@
 ﻿using HousingFacilityManagementSystem.Core.Interfaces;
 using HousingFacilityManagementSystem.Core.Repositories;
 using HousingFacilityManagementSystem.Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Infrastructure.GenericRepositories
 {
@@ -25,7 +19,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.GenericRepositories
             _housingFacilityContext
                 .Set<T>()
                 .Add(entity);
-            
+
             _housingFacilityContext
                 .SaveChanges();
         }
@@ -63,6 +57,11 @@ namespace HousingFacilityManagementSystem.Infrastructure.GenericRepositories
 
             _housingFacilityContext
                 .SaveChanges();
+        }
+
+        public void Save()
+        {
+            _housingFacilityContext.SaveChanges();
         }
     }
 }

@@ -9,5 +9,6 @@ namespace HousingFacilityManagementSystem.Core.Repositories
 {
     public interface IGenericRepository<T> : IRepository<T>
     {
+        public void Save();
     }
 }

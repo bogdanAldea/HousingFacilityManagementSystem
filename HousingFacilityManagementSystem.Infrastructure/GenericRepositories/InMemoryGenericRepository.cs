@@ -46,6 +46,11 @@ namespace HousingFacilityManagementSystem.Core.Repositories
             return _inMemoryContext.FirstOrDefault(entity => entity.Id == id);
         }
 
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(T entity)
         {
             IEntity oldEntity = _inMemoryContext.Where(oldEntity => oldEntity.Id == entity.Id).First();

@@ -12,16 +12,15 @@ namespace HousingFacilityManagementSystem.Core.Models
     {
         public int Id { get; set; }
         public Administrator? Administrator { get; set; } = null!;
+        public int? AdministratorId { get; set; }
         public int Capacity { get; set; }
         public ICollection<Apartment> Apartments { get; private set; } = new List<Apartment>();
         public ICollection<MasterConsumableUtility> MasterConsumableUtilities { get; set; } = new List<MasterConsumableUtility>();
         public ICollection<UniversalUtility> UniversalUtilities { get; set; } = new List<UniversalUtility>();
 
-        public Building(int capacity, Administrator administrator)
+        public Building(int capacity)
         {
             Capacity = capacity;
-            Administrator = administrator;
-
         }
 
         public void CreateApartments()

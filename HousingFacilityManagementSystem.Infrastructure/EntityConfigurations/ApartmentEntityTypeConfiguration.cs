@@ -24,6 +24,12 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
             builder
                 .Property(apartment => apartment.PaymentDebt)
                 .HasDefaultValue((double)0);
+
+            builder
+                .HasOne(apartment => apartment.Tenant)
+                .WithOne(apartment => apartment.Apartment)
+                .HasForeignKey<Apartment>(apartment => apartment.TenantId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

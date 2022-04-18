@@ -31,5 +31,8 @@ namespace HousingFacilityManagementSystem.Core.Models.Utilities
         public int IndexMeter { get; set; }
         public int CurrentMonthIndex { get; set; }
         public bool IsBranched { get; set; } = false;
+        public Apartment Apartment { get; set; } = null!;
+        public int ApartmentId { get; set; }
+
     }
 }

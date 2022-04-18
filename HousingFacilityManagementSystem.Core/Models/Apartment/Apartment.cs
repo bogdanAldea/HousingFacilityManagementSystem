@@ -18,6 +18,7 @@ namespace HousingFacilityManagementSystem.Core.Models
 
         public int Id { get; set; }
         public Tenant? Tenant { get; set; }
+        public int? TenantId { get; set; }
         public int NumberInBuilding { get; set; }
         public int Residents { get; set; }
         public double SurfaceArea { get; set; }

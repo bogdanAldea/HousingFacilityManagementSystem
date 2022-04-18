@@ -96,7 +96,9 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     b.HasIndex("BuildingId");
 
-                    b.HasIndex("TenantId");
+                    b.HasIndex("TenantId")
+                        .IsUnique()
+                        .HasFilter("[TenantId] IS NOT NULL");
 
                     b.ToTable("Apartments");
                 });
@@ -117,7 +119,9 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdministratorId");
+                    b.HasIndex("AdministratorId")
+                        .IsUnique()
+                        .HasFilter("[AdministratorId] IS NOT NULL");
 
                     b.ToTable("Buildings");
                 });
@@ -206,7 +210,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasDefaultValue(0m);
 
-                    b.Property<int?>("ApartmentId")
+                    b.Property<int>("ApartmentId")
                         .HasColumnType("int");
 
                     b.Property<int>("CurrentMonthIndex")
@@ -249,7 +253,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("BuildingId")
+                    b.Property<int>("BuildingId")
                         .HasColumnType("int");
 
                     b.Property<int>("CurrentMonthIndex")
@@ -292,7 +296,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("BuildingId")
+                    b.Property<int>("BuildingId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -324,8 +328,9 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                         .HasForeignKey("BuildingId");
 
                     b.HasOne("HousingFacilityManagementSystem.Core.Models.Tenant", "Tenant")
-                        .WithMany()
-                        .HasForeignKey("TenantId");
+                        .WithOne("Apartment")
+                        .HasForeignKey("HousingFacilityManagementSystem.Core.Models.Apartment", "TenantId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Tenant");
                 });
@@ -333,8 +338,9 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
             modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Building", b =>
                 {
                     b.HasOne("HousingFacilityManagementSystem.Core.Models.Administrator", "Administrator")
-                        .WithMany()
-                        .HasForeignKey("AdministratorId");
+                        .WithOne("Building")
+                        .HasForeignKey("HousingFacilityManagementSystem.Core.Models.Building", "AdministratorId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Administrator");
                 });
@@ -348,23 +354,40 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Utilities.BranchedConsumableUtility", b =>
                 {
-                    b.HasOne("HousingFacilityManagementSystem.Core.Models.Apartment", null)
+                    b.HasOne("HousingFacilityManagementSystem.Core.Models.Apartment", "Apartment")
                         .WithMany("BranchedUtilities")
-                        .HasForeignKey("ApartmentId");
+                        .HasForeignKey("ApartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Apartment");
                 });
 
             modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Utilities.MasterConsumableUtility", b =>
                 {
-                    b.HasOne("HousingFacilityManagementSystem.Core.Models.Building", null)
+                    b.HasOne("HousingFacilityManagementSystem.Core.Models.Building", "Building")
                         .WithMany("MasterConsumableUtilities")
-                        .HasForeignKey("BuildingId");
+                        .HasForeignKey("BuildingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Building");
                 });
 
             modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Utilities.UniversalUtility", b =>
                 {
-                    b.HasOne("HousingFacilityManagementSystem.Core.Models.Building", null)
+                    b.HasOne("HousingFacilityManagementSystem.Core.Models.Building", "Building")
                         .WithMany("UniversalUtilities")
-                        .HasForeignKey("BuildingId");
+                        .HasForeignKey("BuildingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Building");
+                });
+
+            modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Administrator", b =>
+                {
+                    b.Navigation("Building");
                 });
 
             modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Apartment", b =>
@@ -381,6 +404,11 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.Navigation("MasterConsumableUtilities");
 
                     b.Navigation("UniversalUtilities");
+                });
+
+            modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Tenant", b =>
+                {
+                    b.Navigation("Apartment");
                 });
 #pragma warning restore 612, 618
         }

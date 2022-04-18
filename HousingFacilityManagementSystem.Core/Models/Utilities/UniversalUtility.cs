@@ -22,5 +22,6 @@ namespace HousingFacilityManagementSystem.Core.Models.Utilities
         public string Name { get; set; }
         public decimal Price { get; set; }
         public UtilityType Type { get; set; } = UtilityType.Universal;
+        public Building Building { get; set; } = null!;
     }
 }

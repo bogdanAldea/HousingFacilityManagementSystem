@@ -23,6 +23,7 @@ namespace HousingFacilityManagementSystem.Core.Models
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string Username { get; set; }
+        public Building? Building { get; set; } = null!;
 
         public string FullName()
         {

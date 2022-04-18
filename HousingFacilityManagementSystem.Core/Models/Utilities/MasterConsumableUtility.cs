@@ -31,5 +31,6 @@ namespace HousingFacilityManagementSystem.Core.Models.Utilities
         public int IndexMeter { get; set; }
         public int CurrentMonthIndex { get; set; }
         public decimal Price { get; set; }
+        public Building Building { get; set; } = null!;
     }
 }

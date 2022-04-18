@@ -31,7 +31,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
             
             builder
                 .HasIndex(admin => admin.Username)
-                .IsUnique();   
+                .IsUnique();  
         }
     }
 }

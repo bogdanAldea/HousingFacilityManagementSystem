@@ -23,5 +23,6 @@ namespace HousingFacilityManagementSystem.Core.Models
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string Username { get; set; }
+        public Apartment? Apartment { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-0FIHO2U\SQLEXPRESS; Database=HousingFacilityDatabase; Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-0FIHO2U\SQLEXPRESS; Database=ProjectDemoDatabase; Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,6 +35,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new MasterUtilityEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new BranchedUtilityEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UniversalUtilityEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new BuildingEntityTypeConfiguration());
         }
     }
 }
