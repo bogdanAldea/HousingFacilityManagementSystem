@@ -16,7 +16,6 @@ namespace HousingFacilityManagementSystem.Core.Models
         public int Capacity { get; set; }
         public ICollection<Apartment> Apartments { get; private set; } = new List<Apartment>();
         public ICollection<MasterConsumableUtility> MasterConsumableUtilities { get; set; } = new List<MasterConsumableUtility>();
-        public ICollection<UniversalUtility> UniversalUtilities { get; set; } = new List<UniversalUtility>();
 
         public Building(int capacity)
         {
@@ -31,6 +30,11 @@ namespace HousingFacilityManagementSystem.Core.Models
                 Apartment apartment = new Apartment(numberInBuilding: apartmentNumber + 1);
                 Apartments.Add(apartment);
             }
+        }
+
+        public void SendPaymentInvoice()
+        {
+
         }
 
     }
