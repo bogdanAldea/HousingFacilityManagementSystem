@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Core.Models.Utilities
+namespace HousingFacilityManagementSystem.Core.Models
 {
     public class MasterConsumableUtility : IMasterConsumableUtility, IEntity
     {
