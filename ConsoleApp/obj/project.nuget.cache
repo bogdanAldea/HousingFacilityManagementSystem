@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "U/yiSZrDXEaqr4vQegYayjE2s7Nqq84G3pZxTMJ+wYQeqrT9EYG55rSj8592CC6evDVe68c4P6ysCw8W9oTa5Q==",
+  "dgSpecHash": "ppcmYgN27XUBqfZQG4ecwzC5Y6UMQcs8TDUi4uvdw9NoujvLc+oWl7SJCE4z5AEOuBLaQ0FmarDkkS7ioxaCbQ==",
   "success": true,
   "projectFilePath": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\ConsoleApp\\ConsoleApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\bogda\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\bogda\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\bogda\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\bogda\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\bogda\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

@@ -2,7 +2,6 @@
 using HousingFacilityManagementSystem.Core.Interfaces;
 using HousingFacilityManagementSystem.Core.Interfaces.Utilities;
 using HousingFacilityManagementSystem.Core.Models;
-using HousingFacilityManagementSystem.Core.Models.Utilities;
 using HousingFacilityManagementSystem.Core.Repositories;
 using HousingFacilityManagementSystem.Infrastructure;
 using HousingFacilityManagementSystem.Infrastructure.Context;
@@ -15,8 +14,6 @@ IGenericRepository<Administrator> adminRepo = new EFCoreRepository<Administrator
 IGenericRepository<Building> buildingRepo = new EFCoreRepository<Building>(new HousingFacilityContext());
 IGenericRepository<Tenant> tenantRepo = new EFCoreRepository<Tenant>(new HousingFacilityContext());
 
-// create new tenant
-Tenant tenantA = new Tenant("Guthrirnir", "Thryr", "guthri.thryr@gmail.com", "guthtri10");
-var ap = apartmentRepo.GetById(2);
-ap.Tenant = tenantA;
-apartmentRepo.Save();
+
+var b = buildingRepo.GetById(5);
+Console.WriteLine(b.Apartments.Count);

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "iWdaBjXAFqefq9Cpmm012PydZRSGseyWUMHJlqUCHILOwui47mHHhBul3zBOrXxwc+2/SmaVUqNVL3hCAdSufQ==",
+  "dgSpecHash": "NkAD6qGk6nwDn4594X1DsNw3UZjPtz930pXHtNd84XK/rwgyo9Vt78Yymf5lqiX9rR7WuA4VF7VHvn21ZYaudw==",
   "success": true,
   "projectFilePath": "D:\\Amdaris\\Project\\HousingFacilityManagementSystem\\HousingFacilityManagementSystem.Application\\HousingFacilityManagementSystem.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\bogda\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\bogda\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

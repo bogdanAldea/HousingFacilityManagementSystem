@@ -19,12 +19,14 @@
   <ItemGroup>
     <Folder Include="Apartment\Commands\" />
     <Folder Include="Apartment\Queries\" />
-    <Folder Include="Building\Commands\" />
-    <Folder Include="Building\Queries\" />
     <Folder Include="User\Commands\" />
     <Folder Include="User\Queries\" />
     <Folder Include="Utility\Commands\" />
     <Folder Include="Utility\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
   </ItemGroup>
 
 </Project>

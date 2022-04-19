@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HousingFacilityManagementSy
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HousingFacilityManagementSystem.Infrastructure", "HousingFacilityManagementSystem.Infrastructure\HousingFacilityManagementSystem.Infrastructure.csproj", "{8AD15AA7-D4E7-463A-B8E0-52ACC799A36B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingFacilityManagementSystem.Core.Tests", "HousingFacilityManagementSystem.Core.Tests\HousingFacilityManagementSystem.Core.Tests.csproj", "{11EE3B49-CC20-4679-954B-3E5E5F80BF84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HousingFacilityManagementSystem.Core.Tests", "HousingFacilityManagementSystem.Core.Tests\HousingFacilityManagementSystem.Core.Tests.csproj", "{11EE3B49-CC20-4679-954B-3E5E5F80BF84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingFacilityManagementSystem.Api", "HousingFacilityManagementSystem.Api\HousingFacilityManagementSystem.Api.csproj", "{72D7CF58-518D-4F60-A6CB-0A607DA55473}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{11EE3B49-CC20-4679-954B-3E5E5F80BF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11EE3B49-CC20-4679-954B-3E5E5F80BF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11EE3B49-CC20-4679-954B-3E5E5F80BF84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D7CF58-518D-4F60-A6CB-0A607DA55473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D7CF58-518D-4F60-A6CB-0A607DA55473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D7CF58-518D-4F60-A6CB-0A607DA55473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D7CF58-518D-4F60-A6CB-0A607DA55473}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
