@@ -24,6 +24,7 @@ namespace HousingFacilityManagementSystem.Core.Models
 
         public void CreateApartments()
         {
+            if (Apartments.Count == Capacity) { throw new InvalidOperationException(); }
             for (int apartmentNumber = 0; apartmentNumber < Capacity; apartmentNumber++)
             {
 
