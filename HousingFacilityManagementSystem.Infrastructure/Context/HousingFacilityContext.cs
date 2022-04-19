@@ -1,5 +1,4 @@
 ﻿using HousingFacilityManagementSystem.Core.Models;
-using HousingFacilityManagementSystem.Core.Models.Utilities;
 using HousingFacilityManagementSystem.Infrastructure.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +11,15 @@ namespace HousingFacilityManagementSystem.Infrastructure.Context
 {
     public class HousingFacilityContext : DbContext
     {
+
+        public HousingFacilityContext(DbContextOptions options) : base(options)
+        {
+
+        }
+        public HousingFacilityContext()
+        {
+
+        }
 
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Apartment> Apartments { get; set; }
