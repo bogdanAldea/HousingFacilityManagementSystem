@@ -38,5 +38,18 @@ namespace HousingFacilityManagementSystem.Core.Tests
             Assert.AreEqual(expectedLength, _building.Apartments.Count);
         }
 
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(-1)]
+        public void BuildingContructorShouldAcceptCapacityGreaterOrEqualToTwo(int capacity)
+        {
+            // Arrange
+
+            // Act
+             
+            // Assert
+            Assert.Throws<ArgumentException>(() => new Building(capacity));
+        }
+
     }
 }
