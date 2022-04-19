@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace HousingFacilityManagementSystem.Core.Interfaces.Utilities
 {
     public interface IConsumableUtility : IUtility, IConsumable
-    {
+    { 
     }
 }

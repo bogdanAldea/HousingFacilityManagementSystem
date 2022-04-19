@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HousingFacilityManagementSy
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{B1CBCBB0-D011-4F76-8DCC-60E19E0EE597}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingFacilityManagementSystem.Application", "HousingFacilityManagementSystem.Application\HousingFacilityManagementSystem.Application.csproj", "{1BC37BE9-E7AB-4363-827E-FEA76591306C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HousingFacilityManagementSystem.Application", "HousingFacilityManagementSystem.Application\HousingFacilityManagementSystem.Application.csproj", "{1BC37BE9-E7AB-4363-827E-FEA76591306C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingFacilityManagementSystem.Infrastructure", "HousingFacilityManagementSystem.Infrastructure\HousingFacilityManagementSystem.Infrastructure.csproj", "{8AD15AA7-D4E7-463A-B8E0-52ACC799A36B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HousingFacilityManagementSystem.Infrastructure", "HousingFacilityManagementSystem.Infrastructure\HousingFacilityManagementSystem.Infrastructure.csproj", "{8AD15AA7-D4E7-463A-B8E0-52ACC799A36B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingFacilityManagementSystem.Core.Tests", "HousingFacilityManagementSystem.Core.Tests\HousingFacilityManagementSystem.Core.Tests.csproj", "{11EE3B49-CC20-4679-954B-3E5E5F80BF84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8AD15AA7-D4E7-463A-B8E0-52ACC799A36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD15AA7-D4E7-463A-B8E0-52ACC799A36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD15AA7-D4E7-463A-B8E0-52ACC799A36B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11EE3B49-CC20-4679-954B-3E5E5F80BF84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11EE3B49-CC20-4679-954B-3E5E5F80BF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11EE3B49-CC20-4679-954B-3E5E5F80BF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11EE3B49-CC20-4679-954B-3E5E5F80BF84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
