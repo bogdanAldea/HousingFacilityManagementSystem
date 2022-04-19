@@ -18,7 +18,6 @@ namespace HousingFacilityManagementSystem.Core.Tests
         public void Setup()
         {
             _building = new Building(5);
-            _buildingWithApartment = new Building(5);
         }
 
         [TestCase(5, 5)]
