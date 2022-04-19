@@ -34,5 +34,10 @@ namespace HousingFacilityManagementSystem.Core.Models.Utilities
         public Apartment Apartment { get; set; } = null!;
         public int ApartmentId { get; set; }
 
+        public void CalculatePayment(decimal price)
+        {
+            if (price <= 0 || CurrentMonthIndex < 0) { throw new ArgumentException(); }
+            AmountToPay = price * CurrentMonthIndex;
+        }
     }
 }
