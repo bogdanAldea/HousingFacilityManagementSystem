@@ -23,7 +23,6 @@ namespace HousingFacilityManagementSystem.Application.Buildings.Handlers
         public async Task<Building> Handle(GetBuildingByIdQuery request, CancellationToken cancellationToken)
         {
             var building = _repository.GetById(id: request.Id);
-            Console.WriteLine(building.Apartments.Count());
             return building;
         }
     }

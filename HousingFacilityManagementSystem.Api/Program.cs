@@ -2,7 +2,6 @@ using HousingFacilityManagementSystem.Application.Buildings.Commands;
 using HousingFacilityManagementSystem.Core.Models;
 using HousingFacilityManagementSystem.Core.Repositories;
 using HousingFacilityManagementSystem.Infrastructure.Context;
-using HousingFacilityManagementSystem.Infrastructure.GenericRepositories;
 using HousingFacilityManagementSystem.Infrastructure.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
