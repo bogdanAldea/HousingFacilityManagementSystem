@@ -30,6 +30,12 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
                 .WithOne(apartment => apartment.Apartment)
                 .HasForeignKey<Apartment>(apartment => apartment.TenantId)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder
+                .HasMany(apartment => apartment.BranchedUtilities)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

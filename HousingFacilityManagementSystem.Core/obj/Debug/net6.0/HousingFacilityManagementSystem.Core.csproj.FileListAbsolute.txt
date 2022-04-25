@@ -10,6 +10,9 @@ D:\Projects\HousingFacilityanagementSystem\HousingFacilityManagementSystem.Core\
 D:\Projects\HousingFacilityanagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\refint\HousingFacilityManagementSystem.Core.dll
 D:\Projects\HousingFacilityanagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\HousingFacilityManagementSystem.Core.pdb
 D:\Projects\HousingFacilityanagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\ref\HousingFacilityManagementSystem.Core.dll
+D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\bin\Debug\net6.0\HousingFacilityManagementSystem.Core.deps.json
+D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\bin\Debug\net6.0\HousingFacilityManagementSystem.Core.dll
+D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\bin\Debug\net6.0\HousingFacilityManagementSystem.Core.pdb
 D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\HousingFacilityManagementSystem.Core.csproj.AssemblyReference.cache
 D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\HousingFacilityManagementSystem.Core.GeneratedMSBuildEditorConfig.editorconfig
 D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\HousingFacilityManagementSystem.Core.AssemblyInfoInputs.cache
@@ -18,7 +21,4 @@ D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSyst
 D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\HousingFacilityManagementSystem.Core.dll
 D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\refint\HousingFacilityManagementSystem.Core.dll
 D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\HousingFacilityManagementSystem.Core.pdb
-D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\bin\Debug\net6.0\HousingFacilityManagementSystem.Core.deps.json
-D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\bin\Debug\net6.0\HousingFacilityManagementSystem.Core.dll
-D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\bin\Debug\net6.0\HousingFacilityManagementSystem.Core.pdb
 D:\Amdaris\Project\HousingFacilityManagementSystem\HousingFacilityManagementSystem.Core\obj\Debug\net6.0\ref\HousingFacilityManagementSystem.Core.dll

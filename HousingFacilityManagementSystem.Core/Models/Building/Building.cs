@@ -23,7 +23,7 @@ namespace HousingFacilityManagementSystem.Core.Models
             Capacity = capacity;
         }
 
-        public void CreateApartments()
+        public void AddApartments()
         {
             if (Apartments.Count == Capacity) { throw new InvalidOperationException(); }
             for (int apartmentNumber = 0; apartmentNumber < Capacity; apartmentNumber++)
@@ -32,11 +32,6 @@ namespace HousingFacilityManagementSystem.Core.Models
                 Apartment apartment = new Apartment(numberInBuilding: apartmentNumber + 1);
                 Apartments.Add(apartment);
             }
-        }
-
-        public void SendPaymentInvoice()
-        {
-
         }
 
     }

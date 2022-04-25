@@ -18,6 +18,16 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
                 .WithOne(building => building.Building)
                 .HasForeignKey<Building>(building => building.AdministratorId)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder
+                .HasMany(building => building.Apartments)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasMany(building => building.MasterConsumableUtilities)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

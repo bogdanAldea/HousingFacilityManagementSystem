@@ -32,7 +32,7 @@ namespace HousingFacilityManagementSystem.Core.Tests
             _building.Capacity = capacity;
 
             // Act
-            _building.CreateApartments();
+            _building.AddApartments();
 
             // Assert
             Assert.AreEqual(expectedLength, _building.Apartments.Count);

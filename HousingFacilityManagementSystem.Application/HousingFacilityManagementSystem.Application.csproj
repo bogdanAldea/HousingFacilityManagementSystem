@@ -20,8 +20,8 @@
     <Folder Include="Apartments\Commands\" />
     <Folder Include="User\Commands\" />
     <Folder Include="User\Queries\" />
-    <Folder Include="Utility\Commands\" />
-    <Folder Include="Utility\Queries\" />
+    <Folder Include="Utilities\Commands\" />
+    <Folder Include="Utilities\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

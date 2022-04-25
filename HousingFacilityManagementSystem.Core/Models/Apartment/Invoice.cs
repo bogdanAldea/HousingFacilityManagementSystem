@@ -15,5 +15,6 @@ namespace HousingFacilityManagementSystem.Core.Models
         public decimal Payment { get; set; }
         public decimal  Penalties { get; set; }
         public bool IsPaid { get; set; }
+        public int ApartmentId { get; set; }
     }
 }

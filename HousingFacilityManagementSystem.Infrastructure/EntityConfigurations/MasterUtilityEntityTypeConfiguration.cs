@@ -25,10 +25,11 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
             builder
                 .Property(utility => utility.Price)
                 .HasDefaultValue(0.0m);
-            
+
             builder
                 .Property(utility => utility.CurrentMonthIndex)
                 .HasDefaultValue(0);
+                
         }
     }
 }

@@ -31,13 +31,15 @@ namespace HousingFacilityManagementSystem.Core.Models
         public int IndexMeter { get; set; }
         public int CurrentMonthIndex { get; set; }
         public bool IsBranched { get; set; } = false;
-        public Apartment Apartment { get; set; } = null!;
         public int ApartmentId { get; set; }
 
         public void CalculatePayment(decimal price)
         {
-            if (price <= 0 || CurrentMonthIndex < 0) { throw new ArgumentException(); }
-            AmountToPay = price * CurrentMonthIndex;
+            if (IsBranched)
+            {
+                AmountToPay = price * CurrentMonthIndex;
+            }
         }
+
     }
 }

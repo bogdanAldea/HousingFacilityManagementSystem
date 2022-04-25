@@ -23,9 +23,9 @@ namespace HousingFacilityManagementSystem.Application.Buildings.Queries
         public async Task<Building> Handle(CreateBuildingCommand request, CancellationToken cancellationToken)
         {
            var building = new Building(capacity: request.Capacity);
-            building.CreateApartments();
+            building.AddApartments();
             _repository.Add(building);
-            return building;
+            return await Task.FromResult(building);
         }
     }
 }

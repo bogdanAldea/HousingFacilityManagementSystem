@@ -25,5 +25,6 @@ namespace HousingFacilityManagementSystem.Core.Models
         public ICollection<BranchedConsumableUtility> BranchedUtilities { get; set; } = new List<BranchedConsumableUtility>();
         public ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
         public double PaymentDebt { get; set; }
+        public int BuildingId { get; set; }
     }
 }

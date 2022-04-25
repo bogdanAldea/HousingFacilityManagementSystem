@@ -12,11 +12,12 @@ namespace HousingFacilityManagementSystem.Infrastructure.Context
     public class HousingFacilityContext : DbContext
     {
 
-        public HousingFacilityContext(DbContextOptions options) : base(options)
+        public HousingFacilityContext() : base()
         {
 
         }
-        public HousingFacilityContext()
+
+        public HousingFacilityContext(DbContextOptions options) : base(options)
         {
 
         }
