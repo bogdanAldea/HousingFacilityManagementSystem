@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Application.Buildings.Queries
+namespace HousingFacilityManagementSystem.Application.Utilities.Queries
 {
-    public class GetBuildingByIdQuery : IRequest<Building>
+    public class GetMasterUtilityByIdQuery : IRequest<MasterConsumableUtility>
     {
         public int Id { get; set; }
     }

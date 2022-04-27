@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Application.Buildings.Queries
+namespace HousingFacilityManagementSystem.Application.Utilities.Commands
 {
-    public class GetBuildingByIdQuery : IRequest<Building>
+    public class UpdateMasterUtilityCurrentMonthIndexCommand : IRequest<MasterConsumableUtility>
     {
         public int Id { get; set; }
+        public int CurrentMonthIndex { get; set; }
     }
 }

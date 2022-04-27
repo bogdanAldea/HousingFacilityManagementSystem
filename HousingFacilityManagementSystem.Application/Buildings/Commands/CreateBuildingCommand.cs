@@ -10,10 +10,6 @@ namespace HousingFacilityManagementSystem.Application.Buildings.Commands
 {
     public class CreateBuildingCommand : IRequest<Building>
     {
-        public CreateBuildingCommand(int capacity)
-        {
-            Capacity = capacity;
-        }
         public int Capacity { get; set; }
     }
 }
