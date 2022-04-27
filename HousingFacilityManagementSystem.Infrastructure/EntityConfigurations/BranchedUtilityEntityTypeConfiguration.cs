@@ -12,11 +12,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
     public class BranchedUtilityEntityTypeConfiguration : IEntityTypeConfiguration<BranchedConsumableUtility>
     {
         public void Configure(EntityTypeBuilder<BranchedConsumableUtility> builder)
-        {
-            builder
-                .HasIndex(utility => utility.Name)
-                .IsUnique();
-            
+        {   
             builder.
                 Property(utility => utility.IsBranched)
                 .HasDefaultValue(false);

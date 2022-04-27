@@ -15,10 +15,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
         {
 
             builder
-                .HasIndex(utility => utility.Name)
-                .IsUnique();
-
-            builder
                 .Property(utility => utility.IndexMeter)
                 .HasDefaultValue(0);
             

@@ -44,6 +44,9 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
         {
             return _context.Buildings
                 .Include(building => building.Apartments)
+                    .ThenInclude(apartment => apartment.BranchedUtilities)
+                .Include(building => building.Apartments)
+                    .ThenInclude(apartment => apartment.Invoices)   
                 .Include(building => building.MasterConsumableUtilities)
                 .SingleOrDefault(building => building.Id == id);
         }
