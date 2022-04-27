@@ -18,9 +18,11 @@ builder.Services.AddSwaggerGen();
 // Add MediatR
 builder.Services.AddMediatR(typeof(CreateBuildingCommand));
 
+// Add AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 // Scoped repositories
-
 builder.Services.AddScoped<IRepository<Building>, BuildingRepository>();
 builder.Services.AddScoped<IRepository<Apartment>, ApartmentRepository>();
 builder.Services.AddScoped<IRepository<BranchedConsumableUtility>, BranchedUtilityRepository>();
