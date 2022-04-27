@@ -1,4 +1,6 @@
-﻿using HousingFacilityManagementSystem.Application.Buildings.Commands;
+﻿using AutoMapper;
+using HousingFacilityManagementSystem.Api.DTOs;
+using HousingFacilityManagementSystem.Application.Buildings.Commands;
 using HousingFacilityManagementSystem.Application.Buildings.Queries;
 using HousingFacilityManagementSystem.Core.Models;
 using MediatR;
@@ -13,26 +15,34 @@ namespace HousingFacilityManagementSystem.Api.Controllers
     {
 
         private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public BuildingsController(IMediator mediator)
+        public BuildingsController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
 
+        [Route("{id}")]
         [HttpGet]
         public async Task<IActionResult> GetBuildingById(int id)
         {
-            var command = new GetBuildingByIdQuery(id);
-            var building = _mediator.Send(command);
-            return Ok(building);    
+            var query = new GetBuildingByIdQuery { Id = id };
+            var building = await _mediator.Send(query);
+
+            if (building == null) { return NotFound(); }
+            var mappedBuilding = _mapper.Map<Building>(building);
+            return Ok(mappedBuilding);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBuilding(int capacity)
+        public async Task<IActionResult> CreateBuilding(BuildingDto newBuilding)
         {
-            var command = new CreateBuildingCommand(capacity);
-            var building = _mediator.Send(command);
-            return Ok(building);
+            var building = _mapper.Map<BuildingDto, Building>(newBuilding);
+            var command = new CreateBuildingCommand { Capacity = building.Capacity };
+            var createdBuilding = await _mediator.Send(command);
+            
+            return CreatedAtAction(nameof(GetBuildingById), new { Id = createdBuilding.Id }, createdBuilding);
         }
     }
 }
