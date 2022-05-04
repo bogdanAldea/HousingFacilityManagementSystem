@@ -45,7 +45,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
 
         public void Update(Invoice entity)
         {
-            Invoice oldInvoice = _context.Invoices.SingleOrDefault(invoice => invoice.Id == entity.Id);
+            Invoice? oldInvoice = _context.Invoices.SingleOrDefault(invoice => invoice.Id == entity.Id);
             if (oldInvoice != null)
             {
                 _context.Entry(oldInvoice).CurrentValues.SetValues(entity);

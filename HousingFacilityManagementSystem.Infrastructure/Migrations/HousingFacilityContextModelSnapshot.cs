@@ -185,8 +185,8 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.Property<bool>("IsPaid")
                         .HasColumnType("bit");
 
-                    b.Property<int>("IssueDate")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("IssueDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");

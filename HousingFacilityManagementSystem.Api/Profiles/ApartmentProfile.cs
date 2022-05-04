@@ -10,6 +10,9 @@ namespace HousingFacilityManagementSystem.Api.Profiles
         {
             CreateMap<Apartment, ApartmentDto>()
                 .ReverseMap();
+
+            CreateMap<Apartment, ApartmentPutDto>()
+                .ReverseMap();
         }
     }
 }

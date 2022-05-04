@@ -31,14 +31,14 @@ namespace HousingFacilityManagementSystem.Api.Controllers
             var building = await _mediator.Send(query);
 
             if (building == null) { return NotFound(); }
-            var mappedBuilding = _mapper.Map<Building>(building);
+            var mappedBuilding = _mapper.Map <BuildingDto>(building);
             return Ok(mappedBuilding);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBuilding(BuildingDto newBuilding)
+        public async Task<IActionResult> CreateBuilding(BuildingPostDto newBuilding)
         {
-            var building = _mapper.Map<BuildingDto, Building>(newBuilding);
+            var building = _mapper.Map <BuildingPostDto, Building>(newBuilding);
             var command = new CreateBuildingCommand { Capacity = building.Capacity };
             var createdBuilding = await _mediator.Send(command);
             

@@ -24,7 +24,10 @@ namespace HousingFacilityManagementSystem.Application.Utilities.Handlers
         {
             MasterConsumableUtility utility = new MasterConsumableUtility(name: request.Name);
             utility.IndexMeter = request.TotalIndex;
+            utility.CurrentMonthIndex = request.CurrentMonthIndex;
             utility.BuildingId = request.BuildingId;
+            utility.Price = request.Price;
+            
 
             _repository.Add(utility);
             return await Task.FromResult(utility);

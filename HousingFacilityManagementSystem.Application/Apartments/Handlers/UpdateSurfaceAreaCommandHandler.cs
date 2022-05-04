@@ -22,10 +22,9 @@ namespace HousingFacilityManagementSystem.Application.Apartments.Handlers
 
         public Task<Apartment> Handle(UpdateSurfaceAreaCommand request, CancellationToken cancellationToken)
         {
-            Apartment apartment = _repository.GetById(request.Id);
+            Apartment apartment = _repository.GetById(request.Id);       
             apartment.SurfaceArea = request.SurfaceArea;
             _repository.Update(apartment);
-
             return Task.FromResult(apartment);
         }
     }

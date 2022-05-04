@@ -19,7 +19,6 @@ namespace HousingFacilityManagementSystem.Core.Models
 
         public Building(int capacity)
         {
-            if (capacity < 2) { throw new ArgumentException(); }
             Capacity = capacity;
         }
 

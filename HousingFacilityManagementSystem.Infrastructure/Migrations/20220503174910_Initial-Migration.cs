@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 {
-    public partial class DemodbInitialMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -71,7 +72,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     Residents = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     SurfaceArea = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
                     PaymentDebt = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
-                    BuildingId = table.Column<int>(type: "int", nullable: true)
+                    BuildingId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -80,7 +81,8 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                         name: "FK_Apartments_Buildings_BuildingId",
                         column: x => x.BuildingId,
                         principalTable: "Buildings",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Apartments_Tenants_TenantId",
                         column: x => x.TenantId,
@@ -95,7 +97,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
                     IndexMeter = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     CurrentMonthIndex = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
@@ -142,7 +144,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AmountToPay = table.Column<decimal>(type: "decimal(18,2)", nullable: false, defaultValue: 0m),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
                     IndexMeter = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     CurrentMonthIndex = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
@@ -167,11 +169,11 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Number = table.Column<int>(type: "int", nullable: false),
-                    IssueDate = table.Column<int>(type: "int", nullable: false),
+                    IssueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Payment = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Penalties = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     IsPaid = table.Column<bool>(type: "bit", nullable: false),
-                    ApartmentId = table.Column<int>(type: "int", nullable: true)
+                    ApartmentId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -180,7 +182,8 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                         name: "FK_Invoices_Apartments_ApartmentId",
                         column: x => x.ApartmentId,
                         principalTable: "Apartments",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -213,12 +216,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                 column: "ApartmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BranchedConsumableUtilities_Name",
-                table: "BranchedConsumableUtilities",
-                column: "Name",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Buildings_AdministratorId",
                 table: "Buildings",
                 column: "AdministratorId",
@@ -234,12 +231,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                 name: "IX_MasterConsumableUtilities_BuildingId",
                 table: "MasterConsumableUtilities",
                 column: "BuildingId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MasterConsumableUtilities_Name",
-                table: "MasterConsumableUtilities",
-                column: "Name",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tenants_EmailAddress",

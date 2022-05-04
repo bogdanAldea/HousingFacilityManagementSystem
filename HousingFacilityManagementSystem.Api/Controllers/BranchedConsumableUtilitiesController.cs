@@ -36,9 +36,9 @@ namespace HousingFacilityManagementSystem.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBranchedUtility(BranchedUtilityDto newUtilityDto)
+        public async Task<IActionResult> CreateBranchedUtility(BranchedUtilityPostDto utilityDto)
         {
-            var mappedUtility = _mapper.Map<BranchedUtilityDto, BranchedConsumableUtility>(newUtilityDto);
+            var mappedUtility = _mapper.Map<BranchedUtilityPostDto, BranchedConsumableUtility>(utilityDto);
             var command = new CreateBranchedUtilityCommand { ApartmentId = mappedUtility.ApartmentId, Name = mappedUtility.Name };
             var createdUtility = await _mediator.Send(command);
 
@@ -47,9 +47,10 @@ namespace HousingFacilityManagementSystem.Api.Controllers
 
         [HttpPut]
         [Route("{id}/current-month-index")]
-        public async Task<IActionResult> UpdateCurrentMonthIndex(int id, BranchedUtilityDto newUtilityDto)
+        public async Task<IActionResult> UpdateCurrentMonthIndex(int id, BranchedUtilityPostDto utilityDto)
         {
-            var command = new UpdateBranchedUtilityCurrentIndexCommand { Id = id, CurrentMonthIndex=newUtilityDto.CurrentMonthIndex };
+            var mappedUtility = _mapper.Map<BranchedUtilityPostDto, BranchedConsumableUtility>(utilityDto);
+            var command = new UpdateBranchedUtilityCurrentIndexCommand { Id = id, CurrentMonthIndex= mappedUtility.CurrentMonthIndex };
             await _mediator.Send(command);
             
             return NoContent();
@@ -57,9 +58,10 @@ namespace HousingFacilityManagementSystem.Api.Controllers
 
         [HttpPut]
         [Route("{id}/branched-status")]
-        public async Task<IActionResult> SetBranchedStatus(int id, BranchedUtilityDto newUtilityDto)
+        public async Task<IActionResult> SetBranchedStatus(int id, BranchedUtilityPostDto utilityDto)
         {
-            var command = new SetBranchedStatusCommand { Id = id, IsBranched = newUtilityDto.IsBranched };
+            var mappedUtility = _mapper.Map<BranchedUtilityPostDto, BranchedConsumableUtility>(utilityDto);
+            var command = new SetBranchedStatusCommand { Id = id, IsBranched = mappedUtility.IsBranched };
             await _mediator.Send(command);
 
             return NoContent();

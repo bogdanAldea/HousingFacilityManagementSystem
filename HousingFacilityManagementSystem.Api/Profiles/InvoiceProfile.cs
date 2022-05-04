@@ -4,14 +4,11 @@ using HousingFacilityManagementSystem.Core.Models;
 
 namespace HousingFacilityManagementSystem.Api.Profiles
 {
-    public class BuildingProfile : Profile
+    public class InvoiceProfile : Profile
     {
-        public BuildingProfile()
+        public InvoiceProfile()
         {
-            CreateMap<Building, BuildingDto>()
-                .ReverseMap();
-
-            CreateMap<Building, BuildingPostDto>()
+            CreateMap<Invoice, InvoiceDto>()
                 .ReverseMap();
         }
     }

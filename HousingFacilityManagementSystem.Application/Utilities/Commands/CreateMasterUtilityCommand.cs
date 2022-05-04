@@ -12,6 +12,8 @@ namespace HousingFacilityManagementSystem.Application.Utilities.Commands
     {
         public int BuildingId { get; set; }
         public int TotalIndex { get; set; }
+        public int CurrentMonthIndex { get; set; }
         public string Name { get; set; }
+        public decimal Price { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using HousingFacilityManagementSystem.Core.Models;
+﻿using HousingFacilityManagementSystem.Core.Exceptions;
+using HousingFacilityManagementSystem.Core.Models;
 using HousingFacilityManagementSystem.Core.Repositories;
 using HousingFacilityManagementSystem.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
@@ -42,21 +43,20 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
 
         public Apartment GetById(int id)
         {
-            return _context.Apartments
+            Apartment? apartment =  _context.Apartments
                 .Include(apartment => apartment.BranchedUtilities)
                 .Include(apartment => apartment.Invoices)
                 .SingleOrDefault(apartment => apartment.Id == id);
+            return apartment;
         }
 
         public void Update(Apartment entity)
         {
-            Apartment oldApartment = _context.Apartments.SingleOrDefault(apartment => apartment.Id == entity.Id);
+            Apartment? oldApartment = _context.Apartments.SingleOrDefault(apartment => apartment.Id == entity.Id);
             
-            if (oldApartment != null)
-            {
-                _context.Entry(oldApartment).CurrentValues.SetValues(entity);
-                _context.SaveChanges();
-            }
+            _context.Entry(oldApartment).CurrentValues.SetValues(entity);
+            _context.SaveChanges();
+            
         }
     }
 }

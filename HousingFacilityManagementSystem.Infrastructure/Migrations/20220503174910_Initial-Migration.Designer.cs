@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(HousingFacilityContext))]
-    [Migration("20220425150001_OneToManyRelationshipCOnfigFixMigration")]
-    partial class OneToManyRelationshipCOnfigFixMigration
+    [Migration("20220503174910_Initial-Migration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,7 +138,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -146,9 +146,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ApartmentId");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("BranchedConsumableUtilities");
                 });
@@ -190,8 +187,8 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.Property<bool>("IsPaid")
                         .HasColumnType("bit");
 
-                    b.Property<int>("IssueDate")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("IssueDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
@@ -232,7 +229,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .ValueGeneratedOnAdd()
@@ -245,9 +242,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BuildingId");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("MasterConsumableUtilities");
                 });

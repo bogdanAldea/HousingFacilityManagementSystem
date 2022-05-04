@@ -3,7 +3,6 @@ using HousingFacilityManagementSystem.Api.DTOs;
 using HousingFacilityManagementSystem.Application.Apartments.Commands;
 using HousingFacilityManagementSystem.Application.Apartments.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousingFacilityManagementSystem.Api.Controllers
@@ -30,29 +29,38 @@ namespace HousingFacilityManagementSystem.Api.Controllers
             var apartment = await _mediator.Send(query);
 
             if (apartment == null) { return NotFound(); }
+            
             var mappedApartment = _mapper.Map<ApartmentDto>(apartment);
             return Ok(mappedApartment);
         }
 
         [HttpPut]
         [Route("{id}/residents")]
-        public async Task<IActionResult> UpdateResidents(int id, ApartmentDto updatedApartment)
+        public async Task<IActionResult> UpdateResidents(int id, ApartmentPutDto apartmentDto)
         {
-            var command = new UpdateResidentsCommand { Id = id, Residents = updatedApartment.Residents };
-            var apartment = await _mediator.Send(command);
-
-            return NoContent();
+            var command = new UpdateResidentsCommand { Id = id, Residents = apartmentDto.Residents };
+            await _mediator.Send(command);
+            return NoContent(); 
+           
         }
 
         [HttpPut]
         [Route("{id}/surface-area")]
-        public async Task<IActionResult> UpdateSurfaceArea(int id, ApartmentDto updatedApartment)
+        public async Task<IActionResult> UpdateSurfaceArea(int id, ApartmentPutDto apartmentDto)
         {
-            var command = new UpdateSurfaceAreaCommand { Id = id, SurfaceArea = updatedApartment.SurfaceArea };
-            var apartment = await _mediator.Send(command);
-
-            if (apartment != null) { return NotFound(); }
+            var command = new UpdateSurfaceAreaCommand { Id = id, SurfaceArea = apartmentDto.SurfaceArea };
+            await _mediator.Send(command);
             return NoContent();
+        }
+
+        [HttpPut]
+        [Route("{id}/tenant")]
+        public async Task<IActionResult> AddTenant(int id, ApartmentPutDto apartmentDto)
+        {
+            var command = new AddTenantCommand { Id = id, TenantId = apartmentDto.TenantId };
+            await _mediator.Send(command);
+            return NoContent();
+
         }
     }
 }

@@ -11,7 +11,7 @@ namespace HousingFacilityManagementSystem.Core.Models
     {
         public int Id { get; set; }
         public int Number { get; set; }
-        public int IssueDate { get; set; }
+        public DateTime IssueDate { get; set; }
         public decimal Payment { get; set; }
         public decimal  Penalties { get; set; }
         public bool IsPaid { get; set; }
