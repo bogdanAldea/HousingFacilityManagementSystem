@@ -1,0 +1,21 @@
+.nav-link-label {
+    font-weight: 500;
+    font-size: 12px;
+    color: #424141;
+}
+
+.nav-link-icon {
+    transform: scale(0.7);
+}
+
+/* Add hover out effect */
+.nav-link {
+    transition: all ease .4s;
+}
+
+/* Add hover effect */
+.nav-link:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+    transition: all ease .4s;
+}

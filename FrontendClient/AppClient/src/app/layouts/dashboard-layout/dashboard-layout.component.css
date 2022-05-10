@@ -1,0 +1,15 @@
+mat-sidenav {
+    width: 230px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    /* background-color: #F4F5FE; */
+}
+
+mat-sidenav-container {
+    height: 100vh;
+    background-color: #F4F5FE;
+}
+
+.container-fluid {
+    margin-top: 50px;
+    width: 89%;
+}

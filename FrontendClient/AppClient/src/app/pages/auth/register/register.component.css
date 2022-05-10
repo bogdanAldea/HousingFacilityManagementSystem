@@ -1,0 +1,25 @@
+.left-column {
+    background-color: #3F51B5;
+}
+
+.right-column {
+    background-color: whitesmoke;
+}
+
+.form-app-logo {
+    transform: scale(3);
+    color: #FF4081;
+    margin-bottom: 36px;
+}
+
+.form-app-name {
+    font-size: 56px;
+    color: antiquewhite;
+    font-weight: 800;
+}
+
+.form-app-description {
+    color: white;
+    letter-spacing: 2.3px;
+}
+

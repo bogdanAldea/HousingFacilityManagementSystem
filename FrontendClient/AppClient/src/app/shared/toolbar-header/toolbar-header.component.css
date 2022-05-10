@@ -1,0 +1,17 @@
+.app-logo-label {
+    color: white;
+}
+
+.app-logo-label, #navbar-toggle-btn {
+    vertical-align: middle;
+}
+
+.app-logo-label {
+    margin-left: 8px;
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+#navbar-toggle-btn {
+    margin-left: 24px;
+}
