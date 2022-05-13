@@ -1,10 +1,14 @@
 using HousingFacilityManagementSystem.Application.Buildings.Commands;
+using HousingFacilityManagementSystem.Application.Options;
 using HousingFacilityManagementSystem.Core.Models;
 using HousingFacilityManagementSystem.Core.Repositories;
 using HousingFacilityManagementSystem.Infrastructure.Context;
 using HousingFacilityManagementSystem.Infrastructure.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,9 +34,44 @@ builder.Services.AddScoped<IRepository<Invoice>, InvoiceRepository>();
 builder.Services.AddScoped<IRepository<MasterConsumableUtility>, MasterUtilityRepository>();
 
 // Add DbContext
-builder.Services.AddDbContext<HousingFacilityContext>(
+builder.Services.AddDbContext<HousingFacilityContext>
+(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("Demo"))
-    );
+);
+
+// Add Indentity Db Context
+
+// JwtBearer Configurations
+var jwtSettings = new JwtSettings();
+builder.Configuration.Bind(nameof(JwtSettings), jwtSettings);
+
+var jwtSection = builder.Configuration.GetSection(nameof(JwtSettings));
+builder.Services.Configure<JwtSettings>(jwtSection);
+
+builder.Services
+    .AddAuthentication(auth => { 
+        auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        auth.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(jwt =>
+    {
+        jwt.SaveToken = true;
+        jwt.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.SigningKey)),
+            
+            ValidateIssuer = true,
+            ValidIssuer = jwtSettings.Issuer,
+            
+            ValidateAudience = true,
+            ValidAudience = jwtSettings.Audiences[0],
+            
+            RequireExpirationTime = false,
+            ValidateLifetime = true,
+        };
+    });
 
 var app = builder.Build();
 
@@ -44,6 +83,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
