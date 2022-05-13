@@ -27,7 +27,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
 
             builder
                 .HasOne(apartment => apartment.Tenant)
-                .WithOne(apartment => apartment.Apartment)
+                .WithOne(tenant => tenant.Apartment)
                 .HasForeignKey<Apartment>(apartment => apartment.TenantId)
                 .OnDelete(DeleteBehavior.SetNull);
 
