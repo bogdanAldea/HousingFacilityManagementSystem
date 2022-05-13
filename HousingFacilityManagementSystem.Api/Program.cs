@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
+using HousingFacilityManagementSystem.Core.Models.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 // Scoped repositories
+builder.Services.AddScoped<IRepository<AdministratorProfile>, AdminProfileRepository>();
+builder.Services.AddScoped<IRepository<TenantProfile>, TenantProfileRepository>();
 builder.Services.AddScoped<IRepository<Building>, BuildingRepository>();
 builder.Services.AddScoped<IRepository<Apartment>, ApartmentRepository>();
 builder.Services.AddScoped<IRepository<BranchedConsumableUtility>, BranchedUtilityRepository>();
@@ -39,7 +43,9 @@ builder.Services.AddDbContext<HousingFacilityContext>
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("Demo"))
 );
 
-// Add Indentity Db Context
+// Add Indentity Core
+builder.Services.AddIdentityCore<IdentityUser>()
+    .AddEntityFrameworkStores<HousingFacilityContext>();
 
 // JwtBearer Configurations
 var jwtSettings = new JwtSettings();
