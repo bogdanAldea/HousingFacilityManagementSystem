@@ -1,17 +1,13 @@
 ﻿using HousingFacilityManagementSystem.Core.Interfaces;
-using HousingFacilityManagementSystem.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HousingFacilityManagementSystem.Core.Models.Users;
+
 
 namespace HousingFacilityManagementSystem.Core.Models
 {
     public class Building : IEntity
     {
         public int Id { get; set; }
-        public Administrator? Administrator { get; set; } = null!;
+        public AdministratorProfile? Administrator { get; set; }
         public int? AdministratorId { get; set; }
         public int Capacity { get; set; }
         public ICollection<Apartment> Apartments { get; private set; } = new List<Apartment>();

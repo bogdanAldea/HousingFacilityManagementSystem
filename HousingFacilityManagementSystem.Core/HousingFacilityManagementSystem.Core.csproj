@@ -15,4 +15,8 @@
     <None Remove="Services\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
+  </ItemGroup>
+
 </Project>

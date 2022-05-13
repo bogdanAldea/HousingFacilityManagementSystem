@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Core.Interfaces
+namespace HousingFacilityManagementSystem.Core.Enums
 {
-    public interface IUserFactory
+    public enum UserRoles
     {
+        Admin,
+        Tenant
     }
 }

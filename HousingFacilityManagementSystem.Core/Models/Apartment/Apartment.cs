@@ -1,5 +1,5 @@
 ﻿using HousingFacilityManagementSystem.Core.Interfaces;
-using HousingFacilityManagementSystem.Core.Models;
+using HousingFacilityManagementSystem.Core.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace HousingFacilityManagementSystem.Core.Models
         }
 
         public int Id { get; set; }
-        public Tenant? Tenant { get; set; }
+        public TenantProfile? Tenant { get; set; }
         public int? TenantId { get; set; }
         public int NumberInBuilding { get; set; }
         public int Residents { get; set; }
