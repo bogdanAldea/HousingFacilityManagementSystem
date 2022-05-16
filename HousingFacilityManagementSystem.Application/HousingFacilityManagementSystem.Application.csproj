@@ -14,15 +14,19 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HousingFacilityManagementSystem.Core\HousingFacilityManagementSystem.Core.csproj" />
+    <ProjectReference Include="..\HousingFacilityManagementSystem.Infrastructure\HousingFacilityManagementSystem.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="UserProfiles\Commands\" />
     <Folder Include="User\Commands\" />
+    <Folder Include="User\Handlers\" />
     <Folder Include="User\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
   </ItemGroup>
 
 </Project>

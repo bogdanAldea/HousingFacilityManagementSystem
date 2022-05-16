@@ -1,5 +1,4 @@
 using HousingFacilityManagementSystem.Application.Buildings.Commands;
-using HousingFacilityManagementSystem.Application.Options;
 using HousingFacilityManagementSystem.Core.Models;
 using HousingFacilityManagementSystem.Core.Repositories;
 using HousingFacilityManagementSystem.Infrastructure.Context;
@@ -11,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using HousingFacilityManagementSystem.Core.Models.Users;
+using HousingFacilityManagementSystem.Infrastructure.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,8 +29,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 // Scoped repositories
-builder.Services.AddScoped<IRepository<AdministratorProfile>, AdminProfileRepository>();
-builder.Services.AddScoped<IRepository<TenantProfile>, TenantProfileRepository>();
+builder.Services.AddScoped<IIdentityRepository<AdministratorProfile>, AdminIdentityRepository>();
 builder.Services.AddScoped<IRepository<Building>, BuildingRepository>();
 builder.Services.AddScoped<IRepository<Apartment>, ApartmentRepository>();
 builder.Services.AddScoped<IRepository<BranchedConsumableUtility>, BranchedUtilityRepository>();
@@ -47,12 +46,12 @@ builder.Services.AddDbContext<HousingFacilityContext>
 builder.Services.AddIdentityCore<IdentityUser>()
     .AddEntityFrameworkStores<HousingFacilityContext>();
 
-// JwtBearer Configurations
-var jwtSettings = new JwtSettings();
-builder.Configuration.Bind(nameof(JwtSettings), jwtSettings);
+//// JwtBearer Configurations
+//var jwtSettings = new JwtSettings();
+//builder.Configuration.Bind(nameof(JwtSettings), jwtSettings);
 
-var jwtSection = builder.Configuration.GetSection(nameof(JwtSettings));
-builder.Services.Configure<JwtSettings>(jwtSection);
+//var jwtSection = builder.Configuration.GetSection(nameof(JwtSettings));
+//builder.Services.Configure<JwtSettings>(jwtSection);
 
 builder.Services
     .AddAuthentication(auth => { 
@@ -66,16 +65,12 @@ builder.Services
         jwt.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.SigningKey)),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("jfr2txodg2ccc91o45nbwl9bwau8m2mv")),
             
-            ValidateIssuer = true,
-            ValidIssuer = jwtSettings.Issuer,
-            
-            ValidateAudience = true,
-            ValidAudience = jwtSettings.Audiences[0],
-            
-            RequireExpirationTime = false,
-            ValidateLifetime = true,
+            ValidateIssuer = false,
+
+            ValidateAudience = false,
+
         };
     });
 

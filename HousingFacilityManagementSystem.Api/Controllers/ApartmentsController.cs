@@ -3,12 +3,15 @@ using HousingFacilityManagementSystem.Api.DTOs;
 using HousingFacilityManagementSystem.Application.Apartments.Commands;
 using HousingFacilityManagementSystem.Application.Apartments.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousingFacilityManagementSystem.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ApartmentsController : ControllerBase
     {
 
@@ -51,16 +54,6 @@ namespace HousingFacilityManagementSystem.Api.Controllers
             var command = new UpdateSurfaceAreaCommand { Id = id, SurfaceArea = apartmentDto.SurfaceArea };
             await _mediator.Send(command);
             return NoContent();
-        }
-
-        [HttpPut]
-        [Route("{id}/tenant")]
-        public async Task<IActionResult> AddTenant(int id, ApartmentPutDto apartmentDto)
-        {
-            var command = new AddTenantCommand { Id = id, TenantId = apartmentDto.TenantId };
-            await _mediator.Send(command);
-            return NoContent();
-
         }
     }
 }

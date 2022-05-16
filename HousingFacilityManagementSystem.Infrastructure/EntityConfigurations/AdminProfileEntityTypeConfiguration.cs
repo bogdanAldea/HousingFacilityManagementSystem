@@ -20,6 +20,12 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
             builder
                 .Property(admin => admin.LastName)
                 .HasMaxLength(25);
+
+            builder
+                .HasOne(admin => admin.Identity)
+                .WithOne()
+                .HasForeignKey<AdministratorProfile>(admin => admin.IdentityId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

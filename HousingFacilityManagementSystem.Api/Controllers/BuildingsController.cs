@@ -36,9 +36,9 @@ namespace HousingFacilityManagementSystem.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBuilding(BuildingPostDto newBuilding)
+        public async Task<IActionResult> CreateBuilding(BuildingPostDto buildingDto)
         {
-            var building = _mapper.Map <BuildingPostDto, Building>(newBuilding);
+            var building = _mapper.Map <BuildingPostDto, Building>(buildingDto);
             var command = new CreateBuildingCommand { Capacity = building.Capacity };
             var createdBuilding = await _mediator.Send(command);
             

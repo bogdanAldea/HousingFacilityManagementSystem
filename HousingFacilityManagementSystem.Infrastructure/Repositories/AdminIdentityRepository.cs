@@ -1,20 +1,20 @@
-﻿using HousingFacilityManagementSystem.Core.Models.Users;
+﻿using HousingFacilityManagementSystem.Core.Interfaces;
+using HousingFacilityManagementSystem.Core.Models.Users;
 using HousingFacilityManagementSystem.Core.Repositories;
 using HousingFacilityManagementSystem.Infrastructure.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HousingFacilityManagementSystem.Infrastructure.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+
 
 namespace HousingFacilityManagementSystem.Infrastructure.Repositories
 {
-    public class AdminProfileRepository : IRepository<AdministratorProfile>
+    public class AdminIdentityRepository : IIdentityRepository<AdministratorProfile>
     {
 
         private readonly HousingFacilityContext _context;
 
-        public AdminProfileRepository(HousingFacilityContext context)
+        public AdminIdentityRepository(HousingFacilityContext context)
         {
             _context = context;
         }
@@ -23,6 +23,11 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
         {
             _context.Administrators.Add(entity);
             _context.SaveChanges();
+        }
+
+        public DatabaseFacade Database()
+        {
+            return _context.Database;
         }
 
         public void Delete(AdministratorProfile entity)
@@ -40,12 +45,16 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
         public AdministratorProfile GetById(int id)
         {
             return _context.Administrators
+                .Include(admin => admin.Identity)
+                .Include(admin => admin.Building)
                 .SingleOrDefault(admin => admin.Id == id);
         }
 
         public AdministratorProfile GetByIdentityId(string id)
         {
             return _context.Administrators
+                .Include(admin => admin.Identity)
+                .Include(admin => admin.Building)
                 .SingleOrDefault(admin => admin.IdentityId == id);
         }
 
@@ -53,7 +62,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
         {
             AdministratorProfile? existingAdminProfile = _context.Administrators
                 .SingleOrDefault(admin => admin.Id == entity.Id);
-            
+
             if (existingAdminProfile != null)
             {
                 _context.Entry(existingAdminProfile).CurrentValues.SetValues(entity);

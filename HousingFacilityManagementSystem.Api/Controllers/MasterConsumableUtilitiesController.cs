@@ -38,11 +38,6 @@ namespace HousingFacilityManagementSystem.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateMasterUtility(MasterUtilityDto utilityDto)
         {
-            //var command = new CreateMasterUtilityCommand() { BuildingId = buildingId, TotalIndex = totalIndex, Name = name };
-            //var masterUtility = _mediator.Send(command);
-            //var actionName = nameof(GetMasterUtilityById);
-            //return CreatedAtAction(actionName, new { Id = masterUtility.Id }, masterUtility);
-
             var mappedUtility = _mapper.Map<MasterUtilityDto, MasterConsumableUtility>(utilityDto);
             var command = new CreateMasterUtilityCommand { 
                 BuildingId = mappedUtility.BuildingId, 
@@ -61,10 +56,6 @@ namespace HousingFacilityManagementSystem.Api.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateMasterUtilityCurrentIndex(int id, MasterUtilityDto utilityDto)
         {
-            //var updateCurrentMonthIndex = new UpdateMasterUtilityCurrentMonthIndexCommand() { Id = id, CurrentMonthIndex = currentMonthIndex };
-            //var masterUtility = _mediator.Send(updateCurrentMonthIndex);
-            //return Ok(masterUtility);
-
             var mappedUtility = _mapper.Map<MasterUtilityDto, MasterConsumableUtility>(utilityDto);
             var command = new UpdateMasterUtilityCurrentMonthIndexCommand { Id = id, CurrentMonthIndex = mappedUtility.CurrentMonthIndex};
             await _mediator.Send(command);
@@ -75,10 +66,6 @@ namespace HousingFacilityManagementSystem.Api.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateMasterUtilityPrice(int id, MasterUtilityDto utilityDto)
         {
-            //var updatePriceCommand = new UpdateMasterUtilityPriceCommand() { Id=id, Price = price };
-            //var masterUtility = _mediator.Send(updatePriceCommand);
-            //return Ok(masterUtility);
-
             var mappedUtility = _mapper.Map<MasterUtilityDto, MasterConsumableUtility>(utilityDto);
             var command = new UpdateMasterUtilityPriceCommand { Id = id, Price = mappedUtility.Price };
             await _mediator.Send(command);
