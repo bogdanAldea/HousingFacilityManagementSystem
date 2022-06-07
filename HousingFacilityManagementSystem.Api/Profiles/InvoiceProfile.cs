@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using HousingFacilityManagementSystem.Api.DTOs;
+using HousingFacilityManagementSystem.Api.DTOs.Invoices;
 using HousingFacilityManagementSystem.Core.Models;
 
 namespace HousingFacilityManagementSystem.Api.Profiles
@@ -8,8 +8,9 @@ namespace HousingFacilityManagementSystem.Api.Profiles
     {
         public InvoiceProfile()
         {
-            CreateMap<Invoice, InvoiceDto>()
-                .ReverseMap();
+            CreateMap<Invoice, InvoiceDto>();
+            CreateMap<InvoicePostDto, Invoice>();
+
         }
     }
 }

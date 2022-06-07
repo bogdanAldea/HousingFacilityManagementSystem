@@ -8,15 +8,16 @@
 
   <ItemGroup>
     <Compile Remove="Factories\**" />
-    <Compile Remove="Services\**" />
     <EmbeddedResource Remove="Factories\**" />
-    <EmbeddedResource Remove="Services\**" />
     <None Remove="Factories\**" />
-    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Patterns\PaymentCalculator\" />
   </ItemGroup>
 
 </Project>

@@ -1,1 +1,121 @@
-<p>admin-dashboard works!</p>
+<!-- First row section: Building Info -->
+<div *ngIf="adminProfileModel" class="row justify-content-center align-items-center">
+  <h1>Building Info</h1>
+
+  <!-- Building Info Cards -->
+  <div class="row justify-content-center align-items-center mt-3 p-0">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+      <app-info-card [cardData]="adminInfoCard"></app-info-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+      <app-info-card [cardData]="buildingInfoCard"></app-info-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+      <app-info-card [cardData]="occupacyCardInfo"></app-info-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+      <app-info-card [cardData]="residentsInfoCard"></app-info-card>
+    </div>
+  </div>
+
+</div>
+<!-- end of First row section: Building Info -->
+
+
+<!-- Second row section: Building Apartments & Utilities -->
+<div class="row justify-content-center mt-3 g-5">
+
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+    <div class=" admin-dashboard-row">
+      <h1 class="p-0">Apartments</h1>
+      <small class="section-description-small">
+        Table displays all apartments registered in the building. <br> By clicking the <b>See More</b> button,
+        the link will redirect to the selected apartment page, where more details about it will be available to
+        see.
+      </small>
+
+      <!-- Apartment info table -->
+      <div class="row justify-content-center align-items-center mt-3 p-0 mx-0">
+        <mat-form-field appearance="standard" class="">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource.data" class="">
+
+          <ng-container matColumnDef="Number">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.numberInBuilding}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Tenant">
+            <th mat-header-cell *matHeaderCellDef> Tenant </th>
+            <td mat-cell *matCellDef="let element"> {{ element.tenant ? element.tenant : "Has no tenant"}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Residents">
+            <th mat-header-cell *matHeaderCellDef> Reisdents </th>
+            <td mat-cell *matCellDef="let element"> {{element.residents}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="Surface Area">
+            <th mat-header-cell *matHeaderCellDef> Surface Area </th>
+            <td mat-cell *matCellDef="let element"> {{element.surfaceArea}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Debt">
+            <th mat-header-cell *matHeaderCellDef> Payment </th>
+            <td mat-cell *matCellDef="let element"> {{element.paymentDebt}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="See detail" class="see-more-btn-cell-container">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" class="btn-cell">
+              <a [routerLink]="['./apartment-detail/', element.id]">
+                <button mat-flat-button color="accent" class="see-more-btn">
+                  See More &rarr;
+                </button>
+              </a>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="columns"></tr>
+          <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 admin-dashboard-row">
+    <h1>Master Utilities</h1>
+
+
+    <div class="row w-100 d-flex">
+      <app-master-util-card></app-master-util-card>
+    </div>
+    <div class="row w-100 d-flex">
+      <app-master-util-card></app-master-util-card>
+    </div>
+    <div class="row w-100 d-flex">
+      <app-master-util-card></app-master-util-card>
+    </div>
+    <div class="row w-100 d-flex">
+      <app-master-util-card></app-master-util-card>
+    </div>
+    <div class="row w-100 d-flex">
+      <app-master-util-card></app-master-util-card>
+    </div>
+  </div>
+
+
+</div>
+<!-- end of Second row section: Apartment List -->

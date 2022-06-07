@@ -1,4 +1,5 @@
-﻿using HousingFacilityManagementSystem.Core.Models;
+﻿using HousingFacilityManagementSystem.Application.Options;
+using HousingFacilityManagementSystem.Core.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,9 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Application.Invoices.Commands
 {
-    public class CreateInvoiceCommand : IRequest<Invoice>
+    public class CreateInvoiceCommand : IRequest<OperationResult<Invoice>>
     {
-        public int ApartmentId { get; set; }
-        public int Number { get; set; }
         public decimal Payment { get; set; }
-        public decimal Penalties { get; set; }
-        public bool IsPaid { get; set; }
+        public int ApartmentId { get; set; }
     }
 }

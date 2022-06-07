@@ -1,14 +1,14 @@
 ﻿using HousingFacilityManagementSystem.Core.Interfaces;
 using HousingFacilityManagementSystem.Core.Models.Users;
-
+using HousingFacilityManagementSystem.Core.Models.Utilities;
 
 namespace HousingFacilityManagementSystem.Core.Models
 {
     public class Building : IEntity
     {
         public int Id { get; set; }
-        public AdministratorProfile? Administrator { get; set; }
-        public int? AdministratorId { get; set; }
+        public AdministratorProfile Administrator { get; set; }
+        public int AdministratorId { get; set; }
         public int Capacity { get; set; }
         public ICollection<Apartment> Apartments { get; private set; } = new List<Apartment>();
         public ICollection<MasterConsumableUtility> MasterConsumableUtilities { get; set; } = new List<MasterConsumableUtility>();

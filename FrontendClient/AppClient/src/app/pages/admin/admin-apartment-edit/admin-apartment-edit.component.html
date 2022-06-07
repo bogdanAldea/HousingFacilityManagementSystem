@@ -1,0 +1,49 @@
+<div class="row justify-content-center align-items-center apartment-edit-row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Edit Apartment</h1>
+  </div>
+
+  <div class="row align-items-center pt-4">
+  </div>
+
+
+  <div class="row align-items-center px-0 pt-4">
+    <form [formGroup]="editApartmentForm">
+      <div class="row align-items-center form-inputs-row">
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+          <mat-label>Residents</mat-label>
+          <mat-form-field>
+            <input matInput formControlName="residents" placeholder="3" type="number">
+          </mat-form-field>
+
+          <mat-label>Surface Area</mat-label>
+          <mat-form-field>
+            <input matInput formControlName="surfaceArea" placeholder="55.76" type="number">
+          </mat-form-field>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+          <mat-label>Payment <span class="undetitable-field"><small>(field cannot be edited directly)</small></span></mat-label>
+          <mat-form-field>
+            <input matInput formControlName="payment" placeholder="540.00" type="number">
+          </mat-form-field>
+
+          <mat-label>Debt <span class="undetitable-field"><small>(field cannot be edited directly)</small></span></mat-label>
+          <mat-form-field>
+            <input matInput formControlName="debt" placeholder="0" type="number">
+          </mat-form-field>
+
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+
+
+</div>

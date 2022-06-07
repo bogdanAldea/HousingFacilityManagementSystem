@@ -1,6 +1,8 @@
 ﻿using HousingFacilityManagementSystem.Core.Models;
+using HousingFacilityManagementSystem.Core.Models.Utilities;
 using HousingFacilityManagementSystem.Core.Repositories;
 using HousingFacilityManagementSystem.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +40,8 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
 
         public MasterConsumableUtility GetById(int id)
         {
-            return _context.MasterConsumableUtilities.SingleOrDefault(util => util.Id == id);
+            return _context.MasterConsumableUtilities
+                .SingleOrDefault(util => util.Id == id);
         }
 
         public void Update(MasterConsumableUtility entity)

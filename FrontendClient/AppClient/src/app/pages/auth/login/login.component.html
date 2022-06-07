@@ -26,17 +26,22 @@
           </div>
   
           <div>
-            <form class="row form">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="row form">
   
               <mat-form-field>
-                <input matInput placeholder="Email" type="email">
+                <input matInput formControlName="email" placeholder="Email" type="email">
               </mat-form-field>
   
               <mat-form-field>
-                <input matInput placeholder="Password" type="password">
+                <input matInput formControlName="password" placeholder="Password" type="password">
               </mat-form-field>
+
+              <div class="justify-content-center">
+                <button mat-raised-button color="accent">Login</button>
+              </div>
+
             </form>
-            <button mat-raised-button color="accent">Login</button>
+            
           </div>
   
         </div>

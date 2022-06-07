@@ -1,4 +1,5 @@
 ﻿using HousingFacilityManagementSystem.Core.Models;
+using HousingFacilityManagementSystem.Core.Models.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -25,7 +26,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
             builder
                 .Property(utility => utility.CurrentMonthIndex)
                 .HasDefaultValue(0);
-                
         }
     }
 }

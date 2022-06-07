@@ -1,4 +1,5 @@
-﻿using HousingFacilityManagementSystem.Core.Models;
+﻿using HousingFacilityManagementSystem.Application.Options;
+using HousingFacilityManagementSystem.Core.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HousingFacilityManagementSystem.Application.Buildings.Queries
 {
-    public class GetBuildingByIdQuery : IRequest<Building>
+    public class GetBuildingByIdQuery : IRequest<OperationResult<Building>>
     {
         public int Id { get; set; }
     }

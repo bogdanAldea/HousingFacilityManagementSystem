@@ -1,6 +1,6 @@
-using HousingFacilityManagementSystem.Application.Buildings.Commands;
 using HousingFacilityManagementSystem.Core.Models;
 using HousingFacilityManagementSystem.Core.Repositories;
+using HousingFacilityManagementSystem.Core.Repositories.Interfaces;
 using HousingFacilityManagementSystem.Infrastructure.Context;
 using HousingFacilityManagementSystem.Infrastructure.Repositories;
 using MediatR;
@@ -11,6 +11,12 @@ using System.Text;
 using Microsoft.AspNetCore.Identity;
 using HousingFacilityManagementSystem.Core.Models.Users;
 using HousingFacilityManagementSystem.Infrastructure.Repositories.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using HousingFacilityManagementSystem.Application.Services;
+using HousingFacilityManagementSystem.Infrastructure.Repositories.Implementations;
+using HousingFacilityManagementSystem.Application.Buildings.Commands;
+using HousingFacilityManagementSystem.Core.Services;
+using HousingFacilityManagementSystem.Core.Models.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,14 +33,35 @@ builder.Services.AddMediatR(typeof(CreateBuildingCommand));
 // Add AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+// Add Cors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder => builder
+            .AllowAnyMethod()
+            .AllowCredentials()
+            .SetIsOriginAllowed((host) => true)
+            .AllowAnyHeader());
+});
 
-// Scoped repositories
-builder.Services.AddScoped<IIdentityRepository<AdministratorProfile>, AdminIdentityRepository>();
+
+// Repositories
+builder.Services.AddScoped<HousingFacilityManagementSystem.Core.Repositories.Interfaces.IIdentityRepository<AdministratorProfile>, AdministratorRepositoryAsync>();
 builder.Services.AddScoped<IRepository<Building>, BuildingRepository>();
 builder.Services.AddScoped<IRepository<Apartment>, ApartmentRepository>();
 builder.Services.AddScoped<IRepository<BranchedConsumableUtility>, BranchedUtilityRepository>();
 builder.Services.AddScoped<IRepository<Invoice>, InvoiceRepository>();
 builder.Services.AddScoped<IRepository<MasterConsumableUtility>, MasterUtilityRepository>();
+
+builder.Services.AddScoped<IBuildingRepository, BuildingRepositoryAsync>();
+builder.Services.AddScoped<IApartmentRepository, ApartmentRepositoryAsync>();
+builder.Services.AddScoped<IBranchedUtilityRepository, BranchedUtilityRepositoryAsync>();
+builder.Services.AddScoped<IMasterUtilityRepository, MasterUtilityRepositoryAsync>();
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepositoryAsync>();
+
+// Services
+builder.Services.AddScoped<IBuildingService, BuildingService>();
+builder.Services.AddScoped<IUtilitiesService, UtilitiesService>();
 
 // Add DbContext
 builder.Services.AddDbContext<HousingFacilityContext>
@@ -45,6 +72,9 @@ builder.Services.AddDbContext<HousingFacilityContext>
 // Add Indentity Core
 builder.Services.AddIdentityCore<IdentityUser>()
     .AddEntityFrameworkStores<HousingFacilityContext>();
+
+builder.Services.AddMvc(option => option.EnableEndpointRouting = false)
+    .AddNewtonsoftJson(option => option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 //// JwtBearer Configurations
 //var jwtSettings = new JwtSettings();
@@ -84,6 +114,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthentication();
 

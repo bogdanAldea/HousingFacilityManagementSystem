@@ -1,0 +1,93 @@
+<div *ngIf="apartmentModel" class="row justify-content-center section-divider">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <h1>Apartment {{ apartmentModel.numberInBuilding }}</h1>
+        <!-- <p ><b>Tenant</b>: {{ apartmentModel.tenant ? apartmentModel.tenant : "Has No Tenant Yet" }}</p> -->
+        <div *ngIf="apartmentModel.tenant" class="d-flex flex">
+            <p><b>Tenant</b>: {{ apartmentModel.tenant }}</p>
+            <button mat-stroked-button color="primary">Change &rarr;</button>
+        </div>
+        <div *ngIf="!apartmentModel.tenant" class="">
+            <p class="me-2"><b>Tenant</b>: Has no tenant.</p>
+            <button mat-stroked-button color="primary">Add &plus;</button>
+        </div>
+        <p><b>Residents</b>: {{ apartmentModel.residents }}</p>
+        <p><b>Surface Area</b>: {{ apartmentModel.surfaceArea }} m<sup>2</sup></p>
+        <p><b>PaymentDebt</b>: {{ apartmentModel.paymentDebt | currency:"RON " }}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        
+        <div>
+            <form [formGroup]="apartmentPutForm" (ngSubmit)="updateApartment()" class="row">
+                <mat-form-field>
+                    <input matInput formControlName="residents" placeholder="Residents" type="number">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput formControlName="surfaceArea" placeholder="Surface Area" type="number">
+                </mat-form-field>
+
+                <div>
+                    <button mat-flat-button color="accent">Update &rarr;</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+<div class="row justify-content-center align-items-center section-divider mt-5">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-0">
+
+        <h1>Utilities.</h1>
+
+        <table mat-table [dataSource]="brachedUtilityDataSource" class="mat-elevation-z0 w-100">
+
+            <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Branched Status">
+                <th mat-header-cell *matHeaderCellDef> Is Branched </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="element.isBranched" class="status-vertical-align">
+                        <mat-icon class="me-2 status-active">{{activeIcon}}</mat-icon>
+                        <span><b>Active</b></span>
+                    </div>
+
+                    <div *ngIf="!element.isBranched" class="status-vertical-align">
+                        <mat-icon class="me-2  status-disabled">{{disabledIcon}}</mat-icon>
+                        <span>Disabled</span>
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Index Meter">
+                <th mat-header-cell *matHeaderCellDef> Index Meter </th>
+                <td mat-cell *matCellDef="let element"> {{element.indexMeter}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Current Month Index">
+                <th mat-header-cell *matHeaderCellDef> Index Meter </th>
+                <td mat-cell *matCellDef="let element"> {{element.currentMonthIndex}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Payment">
+                <th mat-header-cell *matHeaderCellDef> Amount to Pay </th>
+                <td mat-cell *matCellDef="let element"> {{element.amountToPay}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="See Detail">
+                <th mat-header-cell *matHeaderCellDef> Edit</th>
+                <td mat-cell *matCellDef="let element"> 
+                    <a ><button mat-flat-button color="accent">Edit &rarr;</button></a>     
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columns"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+
+        </table>
+    </div>
+</div>

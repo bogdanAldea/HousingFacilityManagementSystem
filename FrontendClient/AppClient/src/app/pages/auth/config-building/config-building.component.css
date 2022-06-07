@@ -1,0 +1,12 @@
+.preview-col {
+    /* background-color: #3F51B5; */
+    background: #FAFBFD;
+}
+
+.config-stepper {
+    width: 100%;
+}
+
+button {
+    margin: 5px;
+}

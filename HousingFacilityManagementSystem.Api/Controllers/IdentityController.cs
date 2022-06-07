@@ -21,22 +21,33 @@ namespace HousingFacilityManagementSystem.Api.Controllers
             _mapper = mapper;
         }
 
+        [Route("register/admin")]
         [HttpPost]
-        [Route("register")]
-        public async Task<IActionResult> Register(UserRegistrationDto userRegistrationDto)
+        public async Task<IActionResult> Register(UserRegistrationDto registrationDto)
         {
-            var command = _mapper.Map<RegisterAdminCommand>(userRegistrationDto);
+            var command = _mapper.Map<RegisterAdminCommand>(registrationDto);
             var result = await _mediator.Send(command);
-            return Ok(result);
+
+            if (result.ErrorCode == 404) { return NotFound(result.Errors); }
+            else if (result.ErrorCode == 400) { return BadRequest(result.Errors); }
+
+            return Ok(result.Payload);
         }
 
+        [Route("login/admin")]
         [HttpPost]
-        [Route("login")]
-        public async Task<IActionResult> Login(UserLoginDto userLoginDto)
+        public async Task<IActionResult> Login(UserLoginDto loginDto)
         {
-            var command = _mapper.Map<LoginAdminCommand>(userLoginDto);
+            var command = _mapper.Map<LoginAdminCommand>(loginDto);
             var result = await _mediator.Send(command);
-            return Ok(result);
+
+            if (result.IsError)
+            {
+                if (result.ErrorCode == 404) { return NotFound(result.Errors); }
+                if (result.ErrorCode == 400) { return BadRequest(result.Errors); }
+            }
+
+            return Ok(result.Payload);
         }
     }
 }

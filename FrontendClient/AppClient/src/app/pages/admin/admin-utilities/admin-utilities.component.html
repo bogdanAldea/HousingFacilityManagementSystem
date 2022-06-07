@@ -1,1 +1,45 @@
-<p>admin-utilities works!</p>
+<div class="row justify-content-center align-items-center">
+    <h1>Master Utilities</h1>
+
+    <!-- Master Utilities Table -->
+    <div class="row justify-content-center align-items-center">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+
+            <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+            <ng-container matColumnDef="Total Index Meter">
+                <th mat-header-cell *matHeaderCellDef> Total Index Meter </th>
+                <td mat-cell *matCellDef="let element"> {{ element.indexMeter}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Current Month Index">
+                <th mat-header-cell *matHeaderCellDef> Current Month Index </th>
+                <td mat-cell *matCellDef="let element"> {{element.currentMonthIndex}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Price">
+                <th mat-header-cell *matHeaderCellDef> Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="See detail" class="see-more-btn-cell-container">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element" class="btn-cell">
+                  <a [routerLink]="">
+                    <button mat-flat-button color="accent" class="see-more-btn">
+                      See More &rarr;
+                    </button>
+                  </a>
+                </td>
+              </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columns"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+
+        </table>
+    </div>
+
+</div>

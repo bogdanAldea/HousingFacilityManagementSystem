@@ -43,7 +43,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
 
         public Apartment GetById(int id)
         {
-            Apartment? apartment =  _context.Apartments
+            Apartment apartment =  _context.Apartments
                 .Include(apartment => apartment.BranchedUtilities)
                 .Include(apartment => apartment.Invoices)
                 .SingleOrDefault(apartment => apartment.Id == id);

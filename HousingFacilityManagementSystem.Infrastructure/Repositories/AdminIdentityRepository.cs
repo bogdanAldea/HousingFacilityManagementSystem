@@ -45,8 +45,10 @@ namespace HousingFacilityManagementSystem.Infrastructure.Repositories
         public AdministratorProfile GetById(int id)
         {
             return _context.Administrators
-                .Include(admin => admin.Identity)
                 .Include(admin => admin.Building)
+                    .ThenInclude(building => building.MasterConsumableUtilities)
+                .Include(admin => admin.Building)
+                    .ThenInclude(building => building.Apartments)
                 .SingleOrDefault(admin => admin.Id == id);
         }
 

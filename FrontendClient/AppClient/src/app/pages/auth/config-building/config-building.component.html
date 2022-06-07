@@ -1,0 +1,83 @@
+<div class="container-fluid w-100 h-100">
+  <div class="row justify-content-center align-items-center h-100">
+
+    <!-- Stepper column -->
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 config-col stepper-col h-100">
+      <!-- Stepper form that allows for Building configurations -->
+        <div class="stepper-container d-flex flex-column justify-content-center align-items-center h-100 m-0 p-0">
+            <mat-stepper color="primary" #stepper orientation="vertical" class="config-stepper">
+
+                <!-- Setting the building capacity -->
+                <mat-step [stepControl]="capacityFormGroup" errorMessage="Capacity is required.">
+                  <form [formGroup]="capacityFormGroup">
+                    <ng-template matStepLabel>Set building capacity</ng-template>
+                    <div class="d-flex flex-column mt-5">
+                      <mat-form-field appearance="fill">
+                        <mat-label>Capacity</mat-label>
+                        <input type="number" matInput placeholder="10" formControlName="capacity" required>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <button color="accent" mat-stroked-button matStepperNext (click)="setCapacity()">Next</button>
+                    </div>
+                  </form>
+        
+                  <!-- Creating master utilitites step -->
+                </mat-step>
+                <mat-step [stepControl]="masterUtilityFormGroup" errorMessage="Utility is required.">
+                  <form [formGroup]="masterUtilityFormGroup">
+                    <ng-template matStepLabel>Create master utility</ng-template>
+        
+                    <div class="d-flex flex-column mt-5">
+                      <!-- Utility Name -->
+                      <mat-form-field appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input type="text" matInput placeholder="Cold Water" formControlName="name" required>
+                      </mat-form-field>
+        
+                      <!-- Utility index meter -->
+                      <mat-form-field appearance="fill">
+                        <mat-label>Index Meter</mat-label>
+                        <input type="number" matInput placeholder="44536" formControlName="indexMeter" required>
+                      </mat-form-field>
+        
+                      <!-- Utility current month index -->
+                      <mat-form-field appearance="fill">
+                        <mat-label>Current Month Index</mat-label>
+                        <input type="number" matInput placeholder="5" formControlName="currentMonthIndex" required>
+                      </mat-form-field>
+        
+                      <!-- Utility price -->
+                      <mat-form-field appearance="fill">
+                        <mat-label>Price</mat-label>
+                        <input type="number" matInput placeholder="8.9" formControlName="price" required>
+                      </mat-form-field>
+                    </div>
+                    
+                    <div>
+                      <button mat-flat-button color="accent" (click)="addUtility()">Add +</button>
+                      <button color="accent" mat-stroked-button matStepperNext>Next</button>
+                    </div>
+
+                  </form>
+                </mat-step>
+        
+                <mat-step>
+                  <ng-template matStepLabel>Finalise.</ng-template>
+                  <p>You are now done. Submit the created Building.</p>
+                  <div>
+                    <button type="submit" mat-flat-button color="primary" (click)="postBuildingModel()">Create</button>
+                  </div>
+                </mat-step>
+              </mat-stepper>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 config-col preview-col h-100">
+        <div class="data-preview">
+
+        </div>
+    </div>
+
+  </div>
+</div>

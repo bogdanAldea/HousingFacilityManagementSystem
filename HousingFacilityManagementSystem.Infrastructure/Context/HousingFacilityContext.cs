@@ -1,5 +1,6 @@
 ﻿using HousingFacilityManagementSystem.Core.Models;
 using HousingFacilityManagementSystem.Core.Models.Users;
+using HousingFacilityManagementSystem.Core.Models.Utilities;
 using HousingFacilityManagementSystem.Infrastructure.EntityConfigurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

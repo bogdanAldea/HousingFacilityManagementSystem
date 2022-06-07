@@ -1,0 +1,27 @@
+.mat-card-title {
+    font-size: 16px;
+}
+
+.mat-card, .mat-card-subtitle {
+    background-color: #3F51B5;
+    color: white;
+}
+
+.mat-card-title {
+    font-size: 12px;
+}
+
+.mat-card-subtitle {
+    font-weight: bold;
+}
+
+.mat-icon {
+    transition: all 0.6s ease;
+
+}
+
+.mat-icon:hover {
+    transform: scale(1.4);
+    transition: all 0.6s ease;
+    color: white;
+}

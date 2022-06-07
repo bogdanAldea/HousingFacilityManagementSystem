@@ -13,8 +13,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Invoice> builder)
         {
-         
-
             builder
                 .Property(invoice => invoice.IsPaid)
                 .HasDefaultValue(false);

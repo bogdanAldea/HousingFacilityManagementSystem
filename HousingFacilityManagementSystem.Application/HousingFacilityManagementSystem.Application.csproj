@@ -7,26 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Services\**" />
-    <EmbeddedResource Remove="Services\**" />
-    <None Remove="Services\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HousingFacilityManagementSystem.Core\HousingFacilityManagementSystem.Core.csproj" />
     <ProjectReference Include="..\HousingFacilityManagementSystem.Infrastructure\HousingFacilityManagementSystem.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UserProfiles\Commands\" />
-    <Folder Include="User\Commands\" />
-    <Folder Include="User\Handlers\" />
-    <Folder Include="User\Queries\" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="10.0.1" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
+    <Folder Include="Identity\Handlers\Queries\" />
+    <Folder Include="Identity\Queries\" />
+    <Folder Include="UserProfiles\Commands\" />
+    <Folder Include="UserProfiles\Handlers\Commands\" />
   </ItemGroup>
 
 </Project>

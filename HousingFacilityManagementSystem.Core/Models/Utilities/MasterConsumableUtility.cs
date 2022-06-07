@@ -7,24 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HousingFacilityManagementSystem.Core.Models
+namespace HousingFacilityManagementSystem.Core.Models.Utilities
 {
-    public class MasterConsumableUtility : IMasterConsumableUtility, IEntity
+    public class MasterConsumableUtility : IEntity, IConsumableUtility
     {
-
-        public MasterConsumableUtility(string name, UtilityType type, decimal price, int indexMeter)
-        {
-            Name = name;
-            Type = type;
-            Price = price;
-            IndexMeter = indexMeter;
-        }
-
-        public MasterConsumableUtility(string name)
-        {
-            Name = name;
-        }
-
         public int Id { get; set; }
         public string Name { get; set; }
         public UtilityType Type { get; set; } = UtilityType.Consumable;

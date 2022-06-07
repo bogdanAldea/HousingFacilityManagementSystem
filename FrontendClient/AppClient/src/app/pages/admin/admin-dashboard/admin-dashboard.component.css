@@ -1,0 +1,27 @@
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+.admin-dashboard-row {
+    background-color: white;
+    padding: 50px;
+    border-radius: 16px;
+}
+
+.btn-cell {
+  text-align: right;
+}
+
+.section-description-small {
+  font-weight: 400;
+  color: #808285;
+}

@@ -118,7 +118,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("AdministratorId")
+                    b.Property<int>("AdministratorId")
                         .HasColumnType("int");
 
                     b.Property<int>("Capacity")
@@ -127,8 +127,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AdministratorId")
-                        .IsUnique()
-                        .HasFilter("[AdministratorId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Buildings");
                 });
@@ -164,46 +163,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.HasIndex("ApartmentId");
 
                     b.ToTable("Invoices");
-                });
-
-            modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.MasterConsumableUtility", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("BuildingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CurrentMonthIndex")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
-                    b.Property<int>("IndexMeter")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("decimal(18,2)")
-                        .HasDefaultValue(0.0m);
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BuildingId");
-
-                    b.ToTable("MasterConsumableUtilities");
                 });
 
             modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.UniversalUtility", b =>
@@ -247,6 +206,10 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(25)
@@ -261,8 +224,16 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -280,6 +251,10 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(25)
@@ -294,14 +269,62 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IdentityId");
 
                     b.ToTable("Tenants");
+                });
+
+            modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Utilities.MasterConsumableUtility", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("BuildingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CurrentMonthIndex")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("IndexMeter")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(0.0m);
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BuildingId");
+
+                    b.ToTable("MasterConsumableUtilities");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -512,8 +535,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
 
                     b.HasOne("HousingFacilityManagementSystem.Core.Models.Users.TenantProfile", "Tenant")
                         .WithOne("Apartment")
-                        .HasForeignKey("HousingFacilityManagementSystem.Core.Models.Apartment", "TenantId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("HousingFacilityManagementSystem.Core.Models.Apartment", "TenantId");
 
                     b.Navigation("Tenant");
                 });
@@ -532,7 +554,8 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.HasOne("HousingFacilityManagementSystem.Core.Models.Users.AdministratorProfile", "Administrator")
                         .WithOne("Building")
                         .HasForeignKey("HousingFacilityManagementSystem.Core.Models.Building", "AdministratorId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Administrator");
                 });
@@ -542,15 +565,6 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                     b.HasOne("HousingFacilityManagementSystem.Core.Models.Apartment", null)
                         .WithMany("Invoices")
                         .HasForeignKey("ApartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.MasterConsumableUtility", b =>
-                {
-                    b.HasOne("HousingFacilityManagementSystem.Core.Models.Building", null)
-                        .WithMany("MasterConsumableUtilities")
-                        .HasForeignKey("BuildingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -586,6 +600,15 @@ namespace HousingFacilityManagementSystem.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Identity");
+                });
+
+            modelBuilder.Entity("HousingFacilityManagementSystem.Core.Models.Utilities.MasterConsumableUtility", b =>
+                {
+                    b.HasOne("HousingFacilityManagementSystem.Core.Models.Building", null)
+                        .WithMany("MasterConsumableUtilities")
+                        .HasForeignKey("BuildingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

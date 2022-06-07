@@ -16,7 +16,7 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
             builder
                 .Property(apartment => apartment.SurfaceArea)
                 .HasDefaultValue(0);
-            
+
             builder
                 .Property(apartment => apartment.Residents)
                 .HasDefaultValue(0);   
@@ -28,11 +28,15 @@ namespace HousingFacilityManagementSystem.Infrastructure.EntityConfigurations
             builder
                 .HasOne(apartment => apartment.Tenant)
                 .WithOne(tenant => tenant.Apartment)
-                .HasForeignKey<Apartment>(apartment => apartment.TenantId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey<Apartment>(apartment => apartment.TenantId);
 
             builder
                 .HasMany(apartment => apartment.BranchedUtilities)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasMany(apartment => apartment.Invoices)
                 .WithOne()
                 .OnDelete(DeleteBehavior.Cascade);
 

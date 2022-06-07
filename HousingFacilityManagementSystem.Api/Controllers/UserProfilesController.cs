@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using HousingFacilityManagementSystem.Api.DTOs;
+using HousingFacilityManagementSystem.Application.Buildings.Queries;
 using HousingFacilityManagementSystem.Application.UserProfiles.Queries;
 using HousingFacilityManagementSystem.Core.Models.Users;
 using MediatR;
@@ -11,7 +13,6 @@ namespace HousingFacilityManagementSystem.Api.Controllers
     [ApiController]
     public class UserProfilesController : ControllerBase
     {
-
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
@@ -21,24 +22,28 @@ namespace HousingFacilityManagementSystem.Api.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
         [Route("admins/{id}")]
-        public async Task<IActionResult> GetAdminById(int id)
+        [HttpGet]
+        public async Task<IActionResult> GetById(int id)
         {
-            var query = new GetAdministratorByIdQuery { Id = id };
-            var adminProfile = await _mediator.Send(query);
+            var query = new GetUserProfileById { Id = id };
+            var result = await _mediator.Send(query);
 
-            if (adminProfile == null) { return NotFound(); }
+            if (result.IsError) { return NotFound(result); }
 
-            var mappedAdmin = _mapper.Map<AdministratorProfile>(adminProfile);
-            return Ok(mappedAdmin);
+            var profile = _mapper.Map<AdministratorProfileDto>(result.Payload);
+            return Ok(profile);
         }
 
+        [Route("admins/{id}/building")]
         [HttpGet]
-        [Route("tenants/{id}")]
-        public async Task<IActionResult> GetTenantById(int id)
+        public async Task<IActionResult> GetBuildingByAdmin(int id)
         {
-            return Ok();
+            var query = new GetBuildingByAdminIdQuery { AdministratorId = id };
+            var result = await _mediator.Send(query);
+            if (result.IsError) { return NotFound(result); }
+            var building = _mapper.Map<BuildingDto>(result.Payload);
+            return Ok(building);
         }
     }
 }

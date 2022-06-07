@@ -25,25 +25,37 @@
               </small>
         </div>
 
-        <div>
-          <form class="row form">
+        <div class="justify-content-center">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="row form">
             <mat-form-field>
-              <input matInput placeholder="First Name" type="text">
+              <input matInput formControlName="firstName" placeholder="First Name" type="text">
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Last Name" type="text">
+              <input matInput formControlName="lastName" placeholder="Last Name" type="text">
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Email" type="email">
+              <input matInput formControlName="email" placeholder="Email" type="email">
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Password" type="password">
+              <input matInput formControlName="username" placeholder="Username" type="text">
             </mat-form-field>
+
+            <mat-form-field>
+              <input matInput formControlName="phoneNumber" placeholder="Phone Number" type="number">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput formControlName="password" placeholder="Password" type="password">
+            </mat-form-field>
+
+            <div class="justify-content-center">
+              <button class="register-button submit-button" mat-raised-button color="accent" type="submit" [disabled]="!registerForm.valid">Register</button>
+            </div>
+
           </form>
-          <button mat-raised-button color="accent">Register</button>
         </div>
 
       </div>

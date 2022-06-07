@@ -13,6 +13,9 @@ namespace HousingFacilityManagementSystem.Core.Models.Users
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public string PhoneNumber { get; set; }
         public UserRoles Role { get; set; } = UserRoles.Tenant;
         public Apartment Apartment { get; set; }
         public IdentityUser Identity { get; set; }

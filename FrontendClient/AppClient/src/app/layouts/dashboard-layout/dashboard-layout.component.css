@@ -1,15 +1,29 @@
 mat-sidenav {
-    width: 230px;
+    width: 180px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     /* background-color: #F4F5FE; */
 }
 
+.mat-toolbar {
+    height: 50px;
+}
+
 mat-sidenav-container {
     height: 100vh;
-    background-color: #F4F5FE;
+    /* background-color: #F4F5FE; */
+    background-color: #F5F5FD;
 }
 
 .container-fluid {
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 89%;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px!important;
+}
+
+.see-more-btn {
+    width: 200px;
 }

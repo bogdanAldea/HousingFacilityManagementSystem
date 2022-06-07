@@ -1,0 +1,18 @@
+.section-divider {
+    background-color: white;
+    padding: 50px;
+}
+
+.status-vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.status-active {
+    color: #00b894;
+}
+
+.status-disabled {
+    color: #FF4081;
+}
+
