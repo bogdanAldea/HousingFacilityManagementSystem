@@ -31,7 +31,9 @@ namespace HousingFacilityManagementSystem.Core.Patterns.FileWriter.Abstract
         public string SetPath(string filename) 
         {
             string fullFilename = $"{filename}.{_extension}";
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), _dirName, fullFilename);
+            string path =  Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), _dirName);
+            Directory.CreateDirectory(path);
+            return Path.Combine(path, fullFilename);
 
         }
         public void WriteFile()
