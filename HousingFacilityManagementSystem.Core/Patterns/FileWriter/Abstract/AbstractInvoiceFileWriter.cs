@@ -23,12 +23,12 @@ namespace HousingFacilityManagementSystem.Core.Patterns.FileWriter.Abstract
         public abstract string FormatInvoiceTemplate(Invoice invoice);
         public abstract void PopulateFile(string formattedData, string path);
         
-        public string SetFileName() 
+        public string GetFileName() 
         { 
             return $"invoice-{_data.Number}-{_data.ApartmentId}{_data.Id}";
         }
 
-        public string SetPath(string filename) 
+        public string GetPath(string filename) 
         {
             string fullFilename = $"{filename}.{_extension}";
             string path =  Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), _dirName);
@@ -38,8 +38,8 @@ namespace HousingFacilityManagementSystem.Core.Patterns.FileWriter.Abstract
         }
         public void WriteFile()
         {
-            string filename = SetFileName();
-            string path = SetPath(filename);
+            string filename = GetFileName();
+            string path = GetPath(filename);
             string formattedData = FormatInvoiceTemplate(_data);
             PopulateFile(formattedData, path);
         }
